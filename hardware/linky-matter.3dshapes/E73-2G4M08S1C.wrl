@@ -1,0 +1,5 @@
+#VRML V2.0 utf8
+# Simplified Ebyte E73-2G4M08S1C: module PCB, shield can, ceramic antenna
+Transform { translation 0.0000 0.0000 0.1575 children [ Shape { appearance Appearance { material Material { diffuseColor 0.08 0.22 0.55 specularColor 0.3 0.3 0.3 shininess 0.2 } } geometry Box { size 5.1181 7.0866 0.3150 } } ] }
+Transform { translation 0.0000 0.7283 0.7087 children [ Shape { appearance Appearance { material Material { diffuseColor 0.78 0.78 0.8 specularColor 0.3 0.3 0.3 shininess 0.6 } } geometry Box { size 4.3307 4.9606 0.7874 } } ] }
+Transform { translation -0.1969 -2.8740 0.5118 children [ Shape { appearance Appearance { material Material { diffuseColor 0.92 0.92 0.9 specularColor 0.3 0.3 0.3 shininess 0.2 } } geometry Box { size 2.7559 0.6299 0.3937 } } ] }
