@@ -34,7 +34,7 @@ The TIC output has three screw terminals. I1 and A provide a little power (at le
 
 **Radio.** The radio is an Ebyte E73-2G4M08S1C module with an nRF52840:
 - normal voltage mode (VDDH tied to VDD), USB unused;
-- a 32.768 kHz crystal (9 pF load, 3.2 × 1.5 mm) with 10 pF capacitors, for accurate wake-ups while sleeping;
+- a 32.768 kHz crystal (9 pF load, 3.2 × 1.5 mm) with 10 pF capacitors, for accurate wake-ups while sleeping. Nordic's reference uses 12 pF, which Reichelt does not stock; the lighter load runs the crystal about 35 ppm fast, so the firmware declares a 75 ppm clock instead of 50;
 - only the 28 castellated pads on the module's edge are used, so it solders with a regular iron; the 15 pads underneath stay unconnected.
 
 The firmware will also read its own input voltage through a divider on AIN6. It will run as a sleepy end device by default, and only become a Thread router if the measured margin allows it.
