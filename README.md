@@ -15,7 +15,9 @@ The closest thing I found is [BDeliers' Elektor Labs entry](https://www.elektorm
 - [x] Schematic, v1
 - [x] PCB layout, v1 (DRC clean, matches the schematic)
 - [ ] First boards ordered and soldered
-- [ ] Firmware (Zephyr / nRF Connect SDK, Matter)
+- [ ] Firmware (Zephyr / nRF Connect SDK, Matter over Thread)
+  - [x] TIC decoder for both modes, with host tests
+  - [ ] Board definition and Matter application
 - [ ] 3D-printed case
 
 Nothing has been built yet, so treat it as a design in progress. Read the checklist under [Building one](#building-one) before ordering.
@@ -26,7 +28,7 @@ The TIC output has three screw terminals. I1 and A provide a little power (at le
 
 **Power.** Two BAT54S form a Schottky bridge on I1–A. A 20 V zener keeps the input under the 24 V limit of the regulator. A 470 µF capacitor covers the radio's transmit peaks, and an HT7533-1 LDO makes 3.3 V. With a linear regulator, current is what matters: the TIC can deliver roughly 16–20 mA, and the board should average 1–2 mA as a sleepy Thread device. JP1 links the regulator to the 3.3 V rail. Pull it to run the board from the programming header, or to put an ammeter in its place.
 
-**Data.** The receiver is the stage from Charles-Henri Hallard's PiTInfo V1.2: a 2 kΩ trimmer, an LTV-814 optocoupler and a CJ2302 MOSFET. When the carrier is present, TIC_RX goes low, so the UART reads the bits without any inversion. The nRF52840 UART has no 7-bit mode, so the firmware reads 8 bits and drops the parity bit. The checksum at the end of each TIC line catches errors anyway.
+**Data.** The receiver is the stage from Charles-Henri Hallard's PiTInfo V1.2: a 2 kΩ trimmer, an LTV-814 optocoupler and a CJ2302 MOSFET. When the carrier is present, TIC_RX goes low, so the UART reads the bits without any inversion. The nRF52840 UART has no 7-bit mode, so the firmware reads 8 bits, checks the parity bit itself and drops it. On top of that, the checksum at the end of each TIC line catches errors.
 
 **Radio.** The radio is an Ebyte E73-2G4M08S1C module with an nRF52840:
 - normal voltage mode (VDDH tied to VDD), USB unused;

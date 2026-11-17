@@ -7,3 +7,8 @@ fp-info-cache
 ~*.lck
 .DS_Store
 #auto_saved_files#
+
+# firmware
+firmware/build*/
+firmware/tests/host/test_tic
+firmware/tests/host/*.dSYM/
