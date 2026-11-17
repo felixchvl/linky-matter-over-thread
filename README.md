@@ -74,6 +74,8 @@ The full schematic is in [docs/schematic.pdf](docs/schematic.pdf).
 
 The board is 64 × 41 mm, two layers, 1.6 mm. The Gerber zip can be uploaded as is to JLCPCB or any other fab.
 
+Tracks are 0.5 mm for power and ground, 0.4 mm for signals and 0.3 mm on the module's pads, with at least 0.25 mm between copper, well clear of standard process limits. The rules are saved in the KiCad project (Default and Power netclasses), so edits in KiCad pick them up.
+
 Before ordering:
 
 - Print the PCB at 1:1 and lay a real E73 module on it. I drew its footprint from Ebyte's drawing, and it has not met a physical module yet. Do the same for the LTV-814S and the terminal block.
