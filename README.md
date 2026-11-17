@@ -20,7 +20,7 @@ The closest thing I found is [BDeliers' Elektor Labs entry](https://www.elektorm
   - [x] Board definition and Matter application, building with nRF Connect SDK v3.4.2
   - [x] Energy per tariff index in Matter (HC/HP, Tempo, up to 10 indexes)
   - [ ] Running on a real board
-- [ ] 3D-printed case
+- [x] Case designed in FreeCAD, checked against the board's 3D model (not printed yet)
 
 Nothing has been built yet, so treat it as a design in progress. Read the checklist under [Building one](#building-one) before ordering.
 
@@ -64,6 +64,7 @@ hardware/
   production/linky-matter-over-thread-gerbers.zip             Gerbers and drill files
   production/bom.csv                                          parts list with LCSC codes
 firmware/                                                   Zephyr / nRF Connect SDK app, see firmware/README.md
+case/                                                       3D-printed enclosure (FreeCAD), see case/README.md
 docs/
   schematic.pdf
   images/

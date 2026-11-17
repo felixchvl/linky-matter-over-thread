@@ -12,3 +12,7 @@ fp-info-cache
 firmware/build*/
 firmware/tests/host/test_tic
 firmware/tests/host/*.dSYM/
+
+# case
+case/build/
+__pycache__/
