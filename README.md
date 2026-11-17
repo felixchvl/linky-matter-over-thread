@@ -68,6 +68,12 @@ docs/
 | --- | --- |
 | ![Top](docs/images/board-top.png) | ![Bottom](docs/images/board-bottom.png) |
 
+The copper alone, with the ground pour hidden so the tracks are easy to follow. The bottom layer is seen through the board, in the same orientation as the top.
+
+| Top copper | Bottom copper |
+| --- | --- |
+| ![Top copper](docs/images/copper-top.png) | ![Bottom copper](docs/images/copper-bottom.png) |
+
 The full schematic is in [docs/schematic.pdf](docs/schematic.pdf).
 
 ## Building one
@@ -78,8 +84,8 @@ Tracks are 0.5 mm for power and ground, 0.4 mm for signals and 0.3 mm on the mod
 
 Before ordering:
 
-- Print the PCB at 1:1 and lay a real E73 module on it. I drew its footprint from Ebyte's drawing, and it has not met a physical module yet. Do the same for the LTV-814S and the terminal block.
-- Check stock. The E73 is LCSC C356849, but that page was unavailable when I checked. Ebyte also sells it through its own stores.
+- The E73 footprint is drawn from Ebyte's drawing. Its pads match the [SnapEDA footprint](https://github.com/rbaron/b-parasite/tree/main/kicad/lib/snapeda) and [nordic-lib-kicad](https://github.com/hlord2000/nordic-lib-kicad) exactly, and [nrfmicro](https://github.com/joric/nrfmicro)'s within 0.2 mm, but it has not met a physical module yet. If you have one, print [docs/footprint-check-1to1.pdf](docs/footprint-check-1to1.pdf) at 100 % (its two scale bars tell you if the printer resized it) and lay the module on it.
+- The E73 is no longer listed at LCSC (C356849 returns "part not found"). Ebyte sells it on Tindie and AliExpress, and RobotShop stocks it. Everything else is on LCSC.
 
 Parts:
 
