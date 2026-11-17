@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  decoder:
+    name: TIC decoder tests
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - name: Run the host tests
+        run: make -C firmware/tests/host
+
+  hardware:
+    name: KiCad ERC and DRC
+    runs-on: ubuntu-24.04
+    container:
+      image: kicad/kicad:10.0.8
+      options: --user root
+    steps:
+      - uses: actions/checkout@v7
+      - name: Electrical rules check
+        run: >
+          kicad-cli sch erc --severity-error --exit-code-violations
+          -o erc.rpt hardware/linky-matter-over-thread.kicad_sch
+      - name: Design rules check, with schematic parity
+        run: >
+          kicad-cli pcb drc --severity-error --exit-code-violations --schematic-parity
+          -o drc.rpt hardware/linky-matter-over-thread.kicad_pcb
+      - name: Keep the reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: kicad-reports
+          path: "*.rpt"
+
+  firmware:
+    name: Firmware build
+    runs-on: ubuntu-24.04
+    env:
+      NCS_VERSION: v3.4.2
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install nrfutil
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          curl -sSfL -o "$HOME/.local/bin/nrfutil" \
+            https://files.nordicsemi.com/artifactory/swtools/external/nrfutil/executables/x86_64-unknown-linux-gnu/nrfutil
+          chmod +x "$HOME/.local/bin/nrfutil"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Cache the nRF Connect SDK
+        id: ncs-cache
+        uses: actions/cache@v6
+        with:
+          path: |
+            ~/ncs
+            ~/.nrfutil
+          key: ncs-${{ env.NCS_VERSION }}-${{ runner.os }}
+
+      - name: Install the nRF Connect SDK
+        if: steps.ncs-cache.outputs.cache-hit != 'true'
+        run: |
+          nrfutil install sdk-manager
+          nrfutil sdk-manager install "$NCS_VERSION"
+
+      - name: Build
+        run: |
+          FW="$GITHUB_WORKSPACE/firmware"
+          cd "$HOME/ncs/$NCS_VERSION"
+          nrfutil sdk-manager toolchain launch --ncs-version "$NCS_VERSION" -- \
+            west build -b linky_matter_over_thread/nrf52840 -d "$FW/build" "$FW" --sysbuild -- -DBOARD_ROOT="$FW"
+
+      - name: Keep the images
+        uses: actions/upload-artifact@v7
+        with:
+          name: firmware
+          path: |
+            firmware/build/firmware/zephyr/zephyr.hex
+            firmware/build/matter_factory_data/zephyr/factory_data.hex
+            firmware/build/matter_factory_data/zephyr/factory_data.txt
+            firmware/build/matter_factory_data/zephyr/factory_data.png
