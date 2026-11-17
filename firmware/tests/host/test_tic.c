@@ -1,4 +1,6 @@
 /*
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * Host tests for the TIC decoder. Build and run with `make` in this folder.
  *
  * Frames are built here with the checksum rules of Enedis-NOI-CPT_54E, then

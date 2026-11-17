@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+
 SRC := ../../src/tic
 CFLAGS := -std=c11 -Wall -Wextra -Werror -O1 -g -fsanitize=address,undefined -I$(SRC)
 

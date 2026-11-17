@@ -24,9 +24,7 @@ void MatterAccessControlPluginServerInitCallback();
 void MatterBasicInformationPluginServerInitCallback();
 void MatterGeneralCommissioningPluginServerInitCallback();
 void MatterNetworkCommissioningPluginServerInitCallback();
-void MatterDiagnosticLogsPluginServerInitCallback();
 void MatterGeneralDiagnosticsPluginServerInitCallback();
-void MatterSoftwareDiagnosticsPluginServerInitCallback();
 void MatterThreadNetworkDiagnosticsPluginServerInitCallback();
 void MatterAdministratorCommissioningPluginServerInitCallback();
 void MatterOperationalCredentialsPluginServerInitCallback();
@@ -42,9 +40,7 @@ void MatterPowerTopologyPluginServerInitCallback();
   MatterBasicInformationPluginServerInitCallback();                            \
   MatterGeneralCommissioningPluginServerInitCallback();                        \
   MatterNetworkCommissioningPluginServerInitCallback();                        \
-  MatterDiagnosticLogsPluginServerInitCallback();                              \
   MatterGeneralDiagnosticsPluginServerInitCallback();                          \
-  MatterSoftwareDiagnosticsPluginServerInitCallback();                         \
   MatterThreadNetworkDiagnosticsPluginServerInitCallback();                    \
   MatterAdministratorCommissioningPluginServerInitCallback();                  \
   MatterOperationalCredentialsPluginServerInitCallback();                      \

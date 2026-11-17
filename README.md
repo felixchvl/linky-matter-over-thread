@@ -120,4 +120,6 @@ The module is programmed over SWD through J2, with a J-Link or a Raspberry Pi Pi
 
 ## License
 
-The hardware design is shared under [CC BY-NC-SA 4.0](LICENSE), the same license as the PiTInfo design it builds on.
+The hardware design (everything outside `firmware/`) is shared under [CC BY-NC-SA 4.0](LICENSE), the same license as the PiTInfo design it builds on.
+
+The firmware is under the [Apache License 2.0](firmware/LICENSE), like Zephyr.

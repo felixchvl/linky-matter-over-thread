@@ -1,4 +1,6 @@
 /*
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * Turns decoded TIC groups into meter readings.
  *
  * Groups are collected while a frame is being received and only published

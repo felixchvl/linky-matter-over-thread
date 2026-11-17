@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+
 mainmenu "linky-matter-over-thread"
 
 # Thread sleepy end device (Matter ICD, short idle time): the radio sleeps

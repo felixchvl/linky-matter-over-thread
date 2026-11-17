@@ -1,4 +1,6 @@
 /*
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * linky-matter-over-thread v1: Ebyte E73-2G4M08S1C (nRF52840) powered by the Linky TIC.
  * Pin assignment matches hardware/linky-matter-over-thread.kicad_sch.
  */

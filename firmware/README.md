@@ -35,6 +35,7 @@ It builds, but it has not run on a real board yet.
 ```
 boards/linky_matter_over_thread/   Zephyr board definition (pins, 32 kHz crystal, flash layout)
 src/tic/                           TIC decoder, no Zephyr dependency
+src/main.cpp                       starts Matter, the TIC reader and the voltage monitor
 src/tic_reader.c                   UART reception, finds 1200 or 9600 baud on its own
 src/electrical_sensor.cpp          Matter clusters, endpoint 1 and the index endpoints 2 to 11
 src/vin_monitor.c                  input voltage on AIN6, logged once a minute
@@ -111,4 +112,8 @@ These tests build frames from the Enedis spec, then check the decoder on:
 
 ## License
 
-The files based on Nordic's Matter template (`CMakeLists.txt`, `src/main.cpp`, `src/app_task.*`, `src/chip_project_config.h`) keep Nordic's license, LicenseRef-Nordic-5-Clause, as their headers say.
+Apache License 2.0, see [LICENSE](LICENSE).
+
+- The code under `src/default_zap/zap-generated` is generated from the Matter SDK templates and keeps their Apache 2.0 header (Project CHIP Authors).
+- `linky.zap` is put together from two Matter SDK examples, `lit-icd-app` for the root endpoint and the `rootnode_heatpump` chef device for the electrical endpoints, both Apache 2.0.
+- The firmware builds against the nRF Connect SDK, whose own licenses apply to the SDK.

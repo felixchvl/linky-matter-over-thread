@@ -1,3 +1,7 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 &pinctrl {
 	/* TIC data, from the CJ2302 drain (10 k pull-up on the board). Receive only. */
 	uart0_default: uart0_default {

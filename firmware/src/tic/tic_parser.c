@@ -1,3 +1,7 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #include "tic_parser.h"
 
 #include <string.h>

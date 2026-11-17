@@ -1,4 +1,6 @@
 /*
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * Byte-level decoder for the Linky TIC output (Enedis-NOI-CPT_54E).
  *
  * The TIC sends 7E1 characters. The UART reads them as 8N1, so bit 7 of each

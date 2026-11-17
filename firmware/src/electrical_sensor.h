@@ -1,4 +1,6 @@
 /*
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * Matter side of the meter. Endpoint 1 is an Electrical Sensor with the
  * Power Topology, Electrical Power Measurement and Electrical Energy
  * Measurement clusters, for the whole meter. Endpoints 2 to 11 carry the

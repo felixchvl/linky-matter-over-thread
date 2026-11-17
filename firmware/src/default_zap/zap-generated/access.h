@@ -30,7 +30,6 @@
 // Parallel array data (*cluster*, attribute, privilege) for read attribute
 #define GENERATED_ACCESS_READ_ATTRIBUTE__CLUSTER { \
     0x0000001F, /* Cluster: Access Control, Attribute: ACL, Privilege: administer */ \
-    0x0000001F, /* Cluster: Access Control, Attribute: Extension, Privilege: administer */ \
     0x00000031, /* Cluster: Network Commissioning, Attribute: MaxNetworks, Privilege: administer */ \
     0x00000031, /* Cluster: Network Commissioning, Attribute: Networks, Privilege: administer */ \
     /* Cluster: Network Commissioning, Attribute: InterfaceEnabled, Privilege: view */ \
@@ -44,7 +43,6 @@
 // Parallel array data (cluster, *attribute*, privilege) for read attribute
 #define GENERATED_ACCESS_READ_ATTRIBUTE__ATTRIBUTE { \
     0x00000000, /* Cluster: Access Control, Attribute: ACL, Privilege: administer */ \
-    0x00000001, /* Cluster: Access Control, Attribute: Extension, Privilege: administer */ \
     0x00000000, /* Cluster: Network Commissioning, Attribute: MaxNetworks, Privilege: administer */ \
     0x00000001, /* Cluster: Network Commissioning, Attribute: Networks, Privilege: administer */ \
     /* Cluster: Network Commissioning, Attribute: InterfaceEnabled, Privilege: view */ \
@@ -58,7 +56,6 @@
 // Parallel array data (cluster, attribute, *privilege*) for read attribute
 #define GENERATED_ACCESS_READ_ATTRIBUTE__PRIVILEGE { \
     chip::Access::Privilege::kAdminister, /* Cluster: Access Control, Attribute: ACL, Privilege: administer */ \
-    chip::Access::Privilege::kAdminister, /* Cluster: Access Control, Attribute: Extension, Privilege: administer */ \
     chip::Access::Privilege::kAdminister, /* Cluster: Network Commissioning, Attribute: MaxNetworks, Privilege: administer */ \
     chip::Access::Privilege::kAdminister, /* Cluster: Network Commissioning, Attribute: Networks, Privilege: administer */ \
     /* Cluster: Network Commissioning, Attribute: InterfaceEnabled, Privilege: view */ \
@@ -74,7 +71,6 @@
 // Parallel array data (*cluster*, attribute, privilege) for write attribute
 #define GENERATED_ACCESS_WRITE_ATTRIBUTE__CLUSTER { \
     0x0000001F, /* Cluster: Access Control, Attribute: ACL, Privilege: administer */ \
-    0x0000001F, /* Cluster: Access Control, Attribute: Extension, Privilege: administer */ \
     0x00000028, /* Cluster: Basic Information, Attribute: NodeLabel, Privilege: manage */ \
     0x00000028, /* Cluster: Basic Information, Attribute: Location, Privilege: administer */ \
     0x00000030, /* Cluster: General Commissioning, Attribute: Breadcrumb, Privilege: administer */ \
@@ -85,7 +81,6 @@
 // Parallel array data (cluster, *attribute*, privilege) for write attribute
 #define GENERATED_ACCESS_WRITE_ATTRIBUTE__ATTRIBUTE { \
     0x00000000, /* Cluster: Access Control, Attribute: ACL, Privilege: administer */ \
-    0x00000001, /* Cluster: Access Control, Attribute: Extension, Privilege: administer */ \
     0x00000005, /* Cluster: Basic Information, Attribute: NodeLabel, Privilege: manage */ \
     0x00000006, /* Cluster: Basic Information, Attribute: Location, Privilege: administer */ \
     0x00000000, /* Cluster: General Commissioning, Attribute: Breadcrumb, Privilege: administer */ \
@@ -96,7 +91,6 @@
 // Parallel array data (cluster, attribute, *privilege*) for write attribute
 #define GENERATED_ACCESS_WRITE_ATTRIBUTE__PRIVILEGE { \
     chip::Access::Privilege::kAdminister, /* Cluster: Access Control, Attribute: ACL, Privilege: administer */ \
-    chip::Access::Privilege::kAdminister, /* Cluster: Access Control, Attribute: Extension, Privilege: administer */ \
     chip::Access::Privilege::kManage, /* Cluster: Basic Information, Attribute: NodeLabel, Privilege: manage */ \
     chip::Access::Privilege::kAdminister, /* Cluster: Basic Information, Attribute: Location, Privilege: administer */ \
     chip::Access::Privilege::kAdminister, /* Cluster: General Commissioning, Attribute: Breadcrumb, Privilege: administer */ \
@@ -118,9 +112,7 @@
     0x00000031, /* Cluster: Network Commissioning, Command: ConnectNetwork, Privilege: administer */ \
     0x00000031, /* Cluster: Network Commissioning, Command: ReorderNetwork, Privilege: administer */ \
     0x00000033, /* Cluster: General Diagnostics, Command: TestEventTrigger, Privilege: manage */ \
-    0x00000035, /* Cluster: Thread Network Diagnostics, Command: ResetCounts, Privilege: manage */ \
     0x0000003C, /* Cluster: Administrator Commissioning, Command: OpenCommissioningWindow, Privilege: administer */ \
-    0x0000003C, /* Cluster: Administrator Commissioning, Command: OpenBasicCommissioningWindow, Privilege: administer */ \
     0x0000003C, /* Cluster: Administrator Commissioning, Command: RevokeCommissioning, Privilege: administer */ \
     0x0000003E, /* Cluster: Operational Credentials, Command: AttestationRequest, Privilege: administer */ \
     0x0000003E, /* Cluster: Operational Credentials, Command: CertificateChainRequest, Privilege: administer */ \
@@ -150,9 +142,7 @@
     0x00000006, /* Cluster: Network Commissioning, Command: ConnectNetwork, Privilege: administer */ \
     0x00000008, /* Cluster: Network Commissioning, Command: ReorderNetwork, Privilege: administer */ \
     0x00000000, /* Cluster: General Diagnostics, Command: TestEventTrigger, Privilege: manage */ \
-    0x00000000, /* Cluster: Thread Network Diagnostics, Command: ResetCounts, Privilege: manage */ \
     0x00000000, /* Cluster: Administrator Commissioning, Command: OpenCommissioningWindow, Privilege: administer */ \
-    0x00000001, /* Cluster: Administrator Commissioning, Command: OpenBasicCommissioningWindow, Privilege: administer */ \
     0x00000002, /* Cluster: Administrator Commissioning, Command: RevokeCommissioning, Privilege: administer */ \
     0x00000000, /* Cluster: Operational Credentials, Command: AttestationRequest, Privilege: administer */ \
     0x00000002, /* Cluster: Operational Credentials, Command: CertificateChainRequest, Privilege: administer */ \
@@ -182,9 +172,7 @@
     chip::Access::Privilege::kAdminister, /* Cluster: Network Commissioning, Command: ConnectNetwork, Privilege: administer */ \
     chip::Access::Privilege::kAdminister, /* Cluster: Network Commissioning, Command: ReorderNetwork, Privilege: administer */ \
     chip::Access::Privilege::kManage, /* Cluster: General Diagnostics, Command: TestEventTrigger, Privilege: manage */ \
-    chip::Access::Privilege::kManage, /* Cluster: Thread Network Diagnostics, Command: ResetCounts, Privilege: manage */ \
     chip::Access::Privilege::kAdminister, /* Cluster: Administrator Commissioning, Command: OpenCommissioningWindow, Privilege: administer */ \
-    chip::Access::Privilege::kAdminister, /* Cluster: Administrator Commissioning, Command: OpenBasicCommissioningWindow, Privilege: administer */ \
     chip::Access::Privilege::kAdminister, /* Cluster: Administrator Commissioning, Command: RevokeCommissioning, Privilege: administer */ \
     chip::Access::Privilege::kAdminister, /* Cluster: Operational Credentials, Command: AttestationRequest, Privilege: administer */ \
     chip::Access::Privilege::kAdminister, /* Cluster: Operational Credentials, Command: CertificateChainRequest, Privilege: administer */ \

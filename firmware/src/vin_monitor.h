@@ -1,4 +1,6 @@
 /*
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * Measures the input voltage after the bridge (AIN6, 1 M / 150 k divider),
  * to check the power margin on the TIC while bringing the board up.
  */

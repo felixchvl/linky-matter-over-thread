@@ -1,3 +1,7 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #include "electrical_sensor.h"
 
 #include <app-common/zap-generated/cluster-objects.h>

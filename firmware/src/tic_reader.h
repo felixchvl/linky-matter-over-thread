@@ -1,4 +1,6 @@
 /*
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * Reads the TIC from the UART and finds its speed on its own: 9600 baud in
  * standard mode, 1200 baud in historic mode.
  */

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+
 # No bootloader: the nRF52840 has no external flash on this board, so there is
 # no room for a second image and no over-the-air update. Updates go through SWD.
 choice BOOTLOADER

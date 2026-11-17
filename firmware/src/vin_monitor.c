@@ -1,3 +1,7 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #include "vin_monitor.h"
 
 #include <zephyr/drivers/adc.h>
