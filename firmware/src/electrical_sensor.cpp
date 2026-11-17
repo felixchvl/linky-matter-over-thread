@@ -6,7 +6,10 @@
 #include <app/clusters/electrical-power-measurement-server/electrical-power-measurement-server.h>
 #include <app/clusters/power-topology-server/power-topology-server.h>
 #include <app/reporting/reporting.h>
+#include <app/util/endpoint-config-api.h>
+#include <lib/support/CHIPMem.h>
 #include <lib/support/CodeUtils.h>
+#include <platform/KeyValueStoreManager.h>
 
 #include <zephyr/logging/log.h>
 
@@ -127,34 +130,71 @@ public:
 	CHIP_ERROR GetActiveEndpointAtIndex(size_t, EndpointId &) override { return CHIP_ERROR_PROVIDER_LIST_EXHAUSTED; }
 };
 
+/*
+ * Endpoints 2 to 7 carry the energy of supplier indexes 1 to 6 (HC/HP, Tempo...).
+ * An endpoint stays hidden until its index shows up in a frame; the indexes
+ * seen are saved so the same endpoints are back right after a reboot.
+ */
+constexpr EndpointId kFirstIndexEndpoint = 2;
+constexpr uint8_t kIndexEndpoints = 6;
+constexpr uint16_t kIndexEndpointMask = (1u << kIndexEndpoints) - 1;
+constexpr char kIndexMaskKey[] = "linky/ix";
+
+struct EnergyChannel {
+	EndpointId endpoint = kInvalidEndpointId;
+	uint32_t lastWh = 0;
+	uint64_t lastMs = 0;
+	bool sent = false;
+};
+
 EndpointId sEndpoint = kInvalidEndpointId;
 PowerDelegate sPowerDelegate;
 TopologyDelegate sTopologyDelegate;
 EPM::Instance *sPower;
 PowerTopology::Instance *sTopology;
+PowerTopology::Instance *sIndexTopology[kIndexEndpoints];
 EEM::ElectricalEnergyMeasurementAttrAccess *sEnergy;
 
 tic_power_estimator sEstimator;
-uint32_t sLastEnergyWh;
-uint64_t sLastEnergyMs;
-bool sEnergySent;
+EnergyChannel sTotal;
+EnergyChannel sIndex[kIndexEndpoints];
+uint16_t sShownIndexes;
 
 DataModel::Nullable<int64_t> Milli(bool present, uint32_t value)
 {
 	return present ? DataModel::MakeNullable(static_cast<int64_t>(value) * 1000) : DataModel::Nullable<int64_t>();
 }
 
-void SendEnergy(uint32_t totalWh, uint64_t nowMs)
+/* The counters only move in 1 Wh steps; send one when it moved, at most once a minute. */
+void UpdateEnergy(EnergyChannel &ch, uint32_t wh, uint64_t nowMs)
 {
+	bool due = !ch.sent ||
+		   (wh != ch.lastWh && nowMs - ch.lastMs >= CONFIG_LINKY_ENERGY_REPORT_INTERVAL_S * 1000ull);
+	if (!due) {
+		return;
+	}
 	EEM::Structs::EnergyMeasurementStruct::Type imported;
 
-	imported.energy = static_cast<int64_t>(totalWh) * 1000; /* mWh */
+	imported.energy = static_cast<int64_t>(wh) * 1000; /* mWh */
 	imported.endSystime.SetValue(nowMs);
-	EEM::NotifyCumulativeEnergyMeasured(sEndpoint, MakeOptional(imported), NullOptional);
-	MatterReportingAttributeChangeCallback(sEndpoint, EEM::Id, EEM::Attributes::CumulativeEnergyImported::Id);
-	sLastEnergyWh = totalWh;
-	sLastEnergyMs = nowMs;
-	sEnergySent = true;
+	EEM::NotifyCumulativeEnergyMeasured(ch.endpoint, MakeOptional(imported), NullOptional);
+	MatterReportingAttributeChangeCallback(ch.endpoint, EEM::Id, EEM::Attributes::CumulativeEnergyImported::Id);
+	ch.lastWh = wh;
+	ch.lastMs = nowMs;
+	ch.sent = true;
+}
+
+void ShowIndexEndpoints(uint16_t mask)
+{
+	for (uint8_t i = 0; i < kIndexEndpoints; i++) {
+		bool show = mask & (1u << i);
+
+		emberAfEndpointEnableDisable(sIndex[i].endpoint, show);
+		if (show) {
+			/* Enabling an endpoint initialises its clusters again. */
+			EEM::SetMeasurementAccuracy(sIndex[i].endpoint, kEnergyAccuracy);
+		}
+	}
 }
 
 } // namespace
@@ -185,6 +225,28 @@ CHIP_ERROR Init(EndpointId endpoint)
 	sEnergy = &energy;
 	ReturnErrorOnFailure(sEnergy->Init());
 	ReturnErrorOnFailure(EEM::SetMeasurementAccuracy(endpoint, kEnergyAccuracy));
+	sTotal.endpoint = endpoint;
+
+	for (uint8_t i = 0; i < kIndexEndpoints; i++) {
+		EndpointId ep = static_cast<EndpointId>(kFirstIndexEndpoint + i);
+
+		sIndexTopology[i] = Platform::New<PowerTopology::Instance>(
+			ep, sTopologyDelegate, BitMask<PowerTopology::Feature>(PowerTopology::Feature::kNodeTopology),
+			BitMask<PowerTopology::OptionalAttributes>(0));
+		VerifyOrReturnError(sIndexTopology[i] != nullptr, CHIP_ERROR_NO_MEMORY);
+		ReturnErrorOnFailure(sIndexTopology[i]->Init());
+		ReturnErrorOnFailure(EEM::SetMeasurementAccuracy(ep, kEnergyAccuracy));
+		sIndex[i].endpoint = ep;
+	}
+
+	uint16_t saved = 0;
+
+	if (DeviceLayer::PersistedStorage::KeyValueStoreMgr().Get(kIndexMaskKey, &saved) != CHIP_NO_ERROR) {
+		saved = 0;
+	}
+	sShownIndexes = saved & kIndexEndpointMask;
+	ShowIndexEndpoints(sShownIndexes);
+	LOG_INF("Index endpoints shown: 0x%02x", sShownIndexes);
 
 	tic_power_init(&sEstimator, CONFIG_LINKY_POWER_WINDOW_S * 1000u);
 	return CHIP_NO_ERROR;
@@ -205,11 +267,20 @@ void Update(const tic_reading &r, uint64_t nowMs)
 		sPowerDelegate.SetActivePower(Milli(sEstimator.has_power, sEstimator.power_w));
 	}
 
-	/* The energy counter only moves in 1 Wh steps; send it when it moved, at most once a minute. */
-	bool due = !sEnergySent ||
-		   (r.total_wh != sLastEnergyWh && nowMs - sLastEnergyMs >= CONFIG_LINKY_ENERGY_REPORT_INTERVAL_S * 1000ull);
-	if (due) {
-		SendEnergy(r.total_wh, nowMs);
+	UpdateEnergy(sTotal, r.total_wh, nowMs);
+
+	uint16_t seen = r.index_mask & kIndexEndpointMask;
+
+	if (seen & ~sShownIndexes) {
+		sShownIndexes |= seen;
+		ShowIndexEndpoints(sShownIndexes);
+		DeviceLayer::PersistedStorage::KeyValueStoreMgr().Put(kIndexMaskKey, sShownIndexes);
+		LOG_INF("Index endpoints shown: 0x%02x", sShownIndexes);
+	}
+	for (uint8_t i = 0; i < kIndexEndpoints; i++) {
+		if (seen & (1u << i)) {
+			UpdateEnergy(sIndex[i], r.energy_wh[i], nowMs);
+		}
 	}
 }
 

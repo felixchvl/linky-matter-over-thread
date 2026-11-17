@@ -10,7 +10,22 @@ Zephyr with the nRF Connect SDK v3.4.2. The board joins a Thread network as a Ma
 | Current (A) | `IRMS1` / `IINST` |
 | Voltage (V) | `URMS1`, standard mode only |
 
-Home Assistant picks these up as energy, power, apparent power, current and voltage sensors, and the energy one works in the Energy dashboard.
+Those are on endpoint 1. Endpoints 2 to 7 each carry one supplier index, as a cumulative energy:
+
+| Endpoint | Index | Historic label | Usual meaning |
+| --- | --- | --- | --- |
+| 2 | 1 | `BASE`, `HCHC`, `EJPHN`, `BBRHCJB` | base, off-peak, EJP normal, Tempo blue off-peak |
+| 3 | 2 | `HCHP`, `EJPHPM`, `BBRHPJB` | peak, EJP mobile peak, Tempo blue peak |
+| 4 | 3 | `BBRHCJW` | Tempo white off-peak |
+| 5 | 4 | `BBRHPJW` | Tempo white peak |
+| 6 | 5 | `BBRHCJR` | Tempo red off-peak |
+| 7 | 6 | `BBRHPJR` | Tempo red peak |
+
+In standard mode the indexes are `EASF01` to `EASF06`, and their meaning depends on the supplier's calendar. The meter's own display, or `LTARF` while `NTARF` shows that index, tells which is which.
+
+An index endpoint stays hidden until its index appears in a frame, so a base contract only shows endpoint 2 and an off-peak contract endpoints 2 and 3. The indexes seen are saved and come back after a reboot. After changing contracts, a factory reset (long press on the button) forgets them.
+
+Home Assistant picks all of this up as energy, power, apparent power, current and voltage sensors. In the Energy dashboard, either add the total from endpoint 1, or add each index with its own price from the bill, but not both.
 
 It builds, but it has not run on a real board yet.
 
@@ -20,7 +35,7 @@ It builds, but it has not run on a real board yet.
 boards/linky_matter_over_thread/   Zephyr board definition (pins, 32 kHz crystal, flash layout)
 src/tic/                           TIC decoder, no Zephyr dependency
 src/tic_reader.c                   UART reception, finds 1200 or 9600 baud on its own
-src/electrical_sensor.cpp          Matter clusters on endpoint 1
+src/electrical_sensor.cpp          Matter clusters, endpoint 1 and the index endpoints 2 to 7
 src/vin_monitor.c                  input voltage on AIN6, logged once a minute
 src/default_zap/                   Matter data model (linky.zap) and the code ZAP generated from it
 tests/host/                        decoder tests that run on a computer
@@ -32,7 +47,7 @@ tests/host/                        decoder tests that run on a computer
 - **Format.** The TIC sends 7E1 characters, but the nRF52840 UART has no 7-bit mode. The UART reads them as 8N1, and the decoder checks the parity bit itself before dropping it.
 - **Errors.** A frame is only used if every group has a good checksum and the frame ends with ETX, so a reading never mixes two frames.
 - **Active power.** The Linky only reports apparent power, so active power comes from the energy counter. It moves in 1 Wh steps, and the power is taken between two steps at least a minute apart. When the counter stops moving, the value falls towards zero instead of freezing.
-- **Indexes.** Both modes end up with the same index numbers (HCHC = 1, HCHP = 2, Tempo 1 to 6), so the rest of the firmware does not care which mode the meter is in. Per-index energy is decoded but not exposed in Matter yet: only the total is.
+- **Indexes.** Both modes end up with the same index numbers (HCHC = 1, HCHP = 2, Tempo 1 to 6), so the rest of the firmware does not care which mode the meter is in. Indexes 7 to 10, which only some standard-mode offers use, are decoded but not published.
 
 ## Board choices
 
@@ -40,7 +55,7 @@ tests/host/                        decoder tests that run on a computer
 - **No DC/DC.** The E73 does not appear to have the inductor the nRF52840 DC/DC needs, so the regulator stays in LDO mode.
 - **Debug output.** The log goes to J2 pin 4 (TX, 115200 baud). There is no shell, since the header has no RX line.
 
-The current build uses 67 % of the flash and 60 % of the RAM.
+The current build uses 68 % of the flash and 62 % of the RAM.
 
 ## Building
 
