@@ -450,7 +450,7 @@
 		)
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/linky-matter.3dshapes/E73-2G4M08S1C.wrl"
+	(model "${KIPRJMOD}/linky-matter-over-thread.3dshapes/E73-2G4M08S1C.wrl"
 		(offset
 			(xyz 0 0 0)
 		)

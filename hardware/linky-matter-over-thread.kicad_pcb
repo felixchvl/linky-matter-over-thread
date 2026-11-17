@@ -8,7 +8,7 @@
 	)
 	(paper "A4")
 	(title_block
-		(title "linky-matter")
+		(title "linky-matter-over-thread")
 		(date "2026-11-17")
 		(rev "v1")
 		(comment 1 "Linky TIC to Thread / Matter, powered by the TIC")
@@ -192,7 +192,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -376,7 +376,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -560,7 +560,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -744,7 +744,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1174,7 +1174,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1350,7 +1350,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1733,7 +1733,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1917,7 +1917,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2101,7 +2101,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2250,7 +2250,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -2394,7 +2394,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2798,7 +2798,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3031,7 +3031,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3277,7 +3277,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3638,7 +3638,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -3782,7 +3782,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3867,7 +3867,7 @@
 			)
 		)
 	)
-	(footprint "linky-matter:E73-2G4M08S1C"
+	(footprint "linky-matter-over-thread:E73-2G4M08S1C"
 		(layer "F.Cu")
 		(uuid "8bc7f98d-a7f2-48f0-bef4-61f3756a1e01")
 		(at 154 119 90)
@@ -3956,7 +3956,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -4399,7 +4399,7 @@
 			)
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/linky-matter.3dshapes/E73-2G4M08S1C.wrl"
+		(model "${KIPRJMOD}/linky-matter-over-thread.3dshapes/E73-2G4M08S1C.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -4510,7 +4510,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -4879,7 +4879,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -5023,7 +5023,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -5288,7 +5288,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -5472,7 +5472,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -7547,7 +7547,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -7691,7 +7691,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -7976,7 +7976,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -8182,7 +8182,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -8483,7 +8483,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -8667,7 +8667,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -8808,7 +8808,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -8909,7 +8909,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -9053,7 +9053,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -9229,7 +9229,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -9527,7 +9527,7 @@
 			)
 		)
 		(sheetname "/")
-		(sheetfile "linky-matter.kicad_sch")
+		(sheetfile "linky-matter-over-thread.kicad_sch")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -9977,7 +9977,7 @@
 			)
 		)
 	)
-	(gr_text "linky-matter v1"
+	(gr_text "linky-matter-over-thread v1"
 		(at 114 138.9 0)
 		(layer "F.SilkS")
 		(uuid "1dd58f8e-1f20-4607-b9fe-05e45f6cbcdd")
@@ -10024,7 +10024,7 @@
 			(justify mirror)
 		)
 	)
-	(gr_text "github.com/felixchvl/linky-matter"
+	(gr_text "github.com/felixchvl/linky-matter-over-thread"
 		(at 122 137.8 0)
 		(layer "B.SilkS")
 		(uuid "acf88d5b-c8bc-4573-9e8f-bb4575582cb7")
@@ -10084,7 +10084,7 @@
 			(justify mirror)
 		)
 	)
-	(gr_text "linky-matter v1  2026-11"
+	(gr_text "linky-matter-over-thread v1"
 		(at 122 135.6 0)
 		(layer "B.SilkS")
 		(uuid "cf7044a4-e61d-46da-a154-ef9ad2fa4153")

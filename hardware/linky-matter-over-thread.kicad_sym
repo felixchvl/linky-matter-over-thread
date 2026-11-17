@@ -2,7 +2,7 @@
 (symbol "E73-2G4M08S1C" (exclude_from_sim no) (in_bom yes) (on_board yes)
 (property "Reference" "U" (at 0 36.83 0) (effects (font (size 1.27 1.27))))
 (property "Value" "E73-2G4M08S1C" (at 0 -44.45 0) (effects (font (size 1.27 1.27))))
-(property "Footprint" "linky-matter:E73-2G4M08S1C" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(property "Footprint" "linky-matter-over-thread:E73-2G4M08S1C" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://www.cdebyte.com/products/E73-2G4M08S1C" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Description" "Ebyte nRF52840 module, ceramic antenna, 13 x 18 mm, 28 castellated edge pads + 15 inner pads (1.27 mm pitch)" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "ki_keywords" "nRF52840 Thread Matter BLE 802.15.4 module" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))

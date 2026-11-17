@@ -5,7 +5,7 @@
 	(uuid "71a2e83b-1f43-5e7d-a74b-91bb1e05f408")
 	(paper "A3")
 	(title_block
-		(title "linky-matter: Linky TIC to Thread / Matter")
+		(title "linky-matter-over-thread")
 		(date "2026-11-17")
 		(rev "v1")
 		(comment 1 "Powered and fed by the Linky TIC (I1, I2, A); Thread + Matter on an nRF52840")
@@ -3512,7 +3512,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "linky-matter:E73-2G4M08S1C"
+		(symbol "linky-matter-over-thread:E73-2G4M08S1C"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -3538,7 +3538,7 @@
 					)
 				)
 			)
-			(property "Footprint" "linky-matter:E73-2G4M08S1C"
+			(property "Footprint" "linky-matter-over-thread:E73-2G4M08S1C"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -6611,7 +6611,7 @@
 			(uuid "bc5e66eb-c873-52d7-817e-76c211dea944")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "TP2")
 					(unit 1)
@@ -6725,7 +6725,7 @@
 			(uuid "96eb1c88-7a8b-539d-bf69-a2821b4ca73d")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "C1")
 					(unit 1)
@@ -6802,7 +6802,7 @@
 			(uuid "92579a20-bdd7-59cd-9339-fc7b75a0cf54")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR007")
 					(unit 1)
@@ -6879,7 +6879,7 @@
 			(uuid "6ed8afd0-6055-52ee-9d53-cf017d070c59")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR011")
 					(unit 1)
@@ -6956,7 +6956,7 @@
 			(uuid "1f407556-5b23-59d5-882b-f861e2dea343")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR019")
 					(unit 1)
@@ -7033,7 +7033,7 @@
 			(uuid "c46603ff-13b5-5adc-be0d-99dab4de0cc1")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR001")
 					(unit 1)
@@ -7147,7 +7147,7 @@
 			(uuid "b8c0bc14-6251-5901-bc2a-220a449beb8f")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "R3")
 					(unit 1)
@@ -7261,7 +7261,7 @@
 			(uuid "5d2706ab-7ba3-5977-9550-4f3633a9be55")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "C3")
 					(unit 1)
@@ -7338,7 +7338,7 @@
 			(uuid "e5c3a07c-4a58-514a-b7f0-80e972101237")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR003")
 					(unit 1)
@@ -7416,7 +7416,7 @@
 			(uuid "76d9f2fd-da5f-5fe6-b7a8-2d966b40b7da")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#FLG03")
 					(unit 1)
@@ -7530,7 +7530,7 @@
 			(uuid "00a571e8-bbda-580f-8ee3-76286860768b")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "C2")
 					(unit 1)
@@ -7644,7 +7644,7 @@
 			(uuid "fdce4e82-9e26-5d9c-8fb7-0d18e027f7fd")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "R2")
 					(unit 1)
@@ -7721,7 +7721,7 @@
 			(uuid "96c8d8c5-a7dc-572d-bbaa-d0755e65c4a6")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR017")
 					(unit 1)
@@ -7798,7 +7798,7 @@
 			(uuid "b17c0515-f419-5c67-8617-f6a29483e575")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR016")
 					(unit 1)
@@ -7914,7 +7914,7 @@
 			(uuid "fdd01db3-77a5-5e00-8904-aa4fab70857b")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "J1")
 					(unit 1)
@@ -7991,7 +7991,7 @@
 			(uuid "b8ac655b-fd3c-52cf-aa07-346e39560020")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR021")
 					(unit 1)
@@ -8106,7 +8106,7 @@
 			(uuid "87d2836c-399b-526f-8199-ce12ce889a1a")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "RV1")
 					(unit 1)
@@ -8220,7 +8220,7 @@
 			(uuid "41635d93-03f0-5d01-a197-335a84501eca")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "C4")
 					(unit 1)
@@ -8297,7 +8297,7 @@
 			(uuid "236e6b2b-fdaa-51ad-a9e9-312869bf34b4")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR005")
 					(unit 1)
@@ -8375,7 +8375,7 @@
 			(uuid "53a3cfbe-866c-58a6-a685-97f8dd045426")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#FLG01")
 					(unit 1)
@@ -8452,7 +8452,7 @@
 			(uuid "81c8875c-0cba-5d0d-8625-9ece6edab40e")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR002")
 					(unit 1)
@@ -8529,7 +8529,7 @@
 			(uuid "12ad6541-79b2-517f-8be4-a07926898f34")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR014")
 					(unit 1)
@@ -8606,7 +8606,7 @@
 			(uuid "9ac96a16-85dc-5aa5-ab9a-7bd59ed44670")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR010")
 					(unit 1)
@@ -8720,7 +8720,7 @@
 			(uuid "5ac3c91d-eaba-551b-9fce-66abeeb2127d")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "C6")
 					(unit 1)
@@ -8835,7 +8835,7 @@
 			(uuid "f36a6e4d-9e5f-5c08-9aac-31a329d4ac32")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "D2")
 					(unit 1)
@@ -8912,7 +8912,7 @@
 			(uuid "cda47a50-87d6-58ed-8027-cda5a7556caa")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR015")
 					(unit 1)
@@ -8990,7 +8990,7 @@
 			(uuid "dbacb2f3-f429-5f73-aa5e-fa7c5a7ea4f7")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#FLG02")
 					(unit 1)
@@ -9107,7 +9107,7 @@
 			(uuid "ef144731-0456-584d-a1ea-d53f725aa01b")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "Q1")
 					(unit 1)
@@ -9221,7 +9221,7 @@
 			(uuid "c82259c7-5ed4-5afb-a8bc-cea1b6a6ad34")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "C5")
 					(unit 1)
@@ -9294,7 +9294,7 @@
 			)
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "H2")
 					(unit 1)
@@ -9408,7 +9408,7 @@
 			(uuid "a2fb1aa6-0b95-5c3b-9e85-0e1bb86e4d46")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "D3")
 					(unit 1)
@@ -9486,7 +9486,7 @@
 			(uuid "cc595276-08fa-5536-bda0-acf6a8576366")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "TP3")
 					(unit 1)
@@ -9563,7 +9563,7 @@
 			(uuid "1c37e81a-0bd1-50c3-a56f-a8788c42adc9")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR008")
 					(unit 1)
@@ -9677,7 +9677,7 @@
 			(uuid "e1a0f931-f2fb-5a04-9ab6-be0cc9a1aa4d")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "R1")
 					(unit 1)
@@ -9791,7 +9791,7 @@
 			(uuid "1a10328f-cbe0-5bf9-a016-648da5941a64")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "C7")
 					(unit 1)
@@ -9903,7 +9903,7 @@
 			(uuid "f02d04e8-b880-5b39-9b27-6577d55ded09")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "SW1")
 					(unit 1)
@@ -9981,7 +9981,7 @@
 			(uuid "272ad6d3-f887-5486-ae4f-2c32b8e0b6a7")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "TP4")
 					(unit 1)
@@ -10093,7 +10093,7 @@
 			(uuid "ba08f18e-b8d2-5455-a931-fb52a327f547")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "JP1")
 					(unit 1)
@@ -10171,7 +10171,7 @@
 			(uuid "b8e39bfc-e924-595b-ad68-169639e01355")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "TP1")
 					(unit 1)
@@ -10248,7 +10248,7 @@
 			(uuid "7821c6e5-ce4e-5484-a4f1-18531899ba8c")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR004")
 					(unit 1)
@@ -10362,7 +10362,7 @@
 			(uuid "455c5361-b795-57a9-944d-ad1e9b786a6c")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "C8")
 					(unit 1)
@@ -10371,7 +10371,7 @@
 		)
 	)
 	(symbol
-		(lib_id "linky-matter:E73-2G4M08S1C")
+		(lib_id "linky-matter-over-thread:E73-2G4M08S1C")
 		(at 279.4 88.9 0)
 		(unit 1)
 		(body_style 1)
@@ -10401,7 +10401,7 @@
 				)
 			)
 		)
-		(property "Footprint" "linky-matter:E73-2G4M08S1C"
+		(property "Footprint" "linky-matter-over-thread:E73-2G4M08S1C"
 			(at 279.4 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -10597,7 +10597,7 @@
 			(uuid "3bd18637-abc7-5697-a0d8-2b8cd8ee844f")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "U3")
 					(unit 1)
@@ -10674,7 +10674,7 @@
 			(uuid "dba07807-8fd2-510a-a1a9-8a2b8d35ee02")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR013")
 					(unit 1)
@@ -10789,7 +10789,7 @@
 			(uuid "762a7c88-3752-57df-b28b-8eb193f52198")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "D1")
 					(unit 1)
@@ -10903,7 +10903,7 @@
 			(uuid "bb9c95f3-cde5-5bb2-9bb5-90e5f50f7d0d")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "R4")
 					(unit 1)
@@ -11015,7 +11015,7 @@
 			(uuid "c201c017-e631-560b-b75b-1f4055ab2a92")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "Y1")
 					(unit 1)
@@ -11127,7 +11127,7 @@
 			(uuid "5247fcb2-4e6e-5b2d-90b3-1f31e42fc9f4")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "D4")
 					(unit 1)
@@ -11242,7 +11242,7 @@
 			(uuid "4b727c5b-f030-55d9-a1d1-13ea13cbc2ed")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "U2")
 					(unit 1)
@@ -11360,7 +11360,7 @@
 			(uuid "0928feef-a79d-5397-8827-a1288be3168d")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "U1")
 					(unit 1)
@@ -11437,7 +11437,7 @@
 			(uuid "2bffa4bf-6705-55bc-9794-1fe1c25c075a")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR009")
 					(unit 1)
@@ -11514,7 +11514,7 @@
 			(uuid "bb89c6a6-da11-5972-b8e5-af7d64a3788d")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR020")
 					(unit 1)
@@ -11591,7 +11591,7 @@
 			(uuid "048d0664-fee8-512e-961a-73c316ae1bce")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR018")
 					(unit 1)
@@ -11715,7 +11715,7 @@
 			(uuid "0c3bb2f5-94f2-52e3-8151-e7a2297c09fd")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "J2")
 					(unit 1)
@@ -11792,7 +11792,7 @@
 			(uuid "038a822f-dd0b-5e3a-bc78-896aff6ee464")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR012")
 					(unit 1)
@@ -11865,7 +11865,7 @@
 			)
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "H1")
 					(unit 1)
@@ -11977,7 +11977,7 @@
 			(uuid "919ea683-6e0e-5c3d-97bf-b0fc6bd7d576")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "R5")
 					(unit 1)
@@ -12054,7 +12054,7 @@
 			(uuid "64f03715-5e8e-58b0-b7f6-b7da3213c276")
 		)
 		(instances
-			(project "linky-matter"
+			(project "linky-matter-over-thread"
 				(path "/71a2e83b-1f43-5e7d-a74b-91bb1e05f408"
 					(reference "#PWR006")
 					(unit 1)

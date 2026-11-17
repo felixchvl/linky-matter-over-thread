@@ -19,5 +19,5 @@
 "SW1","1","BUTTON","Button_Switch_THT:SW_PUSH_6mm","Omron","B3F-1000","C93157"
 "U1","1","LTV-814S","Package_DIP:SMDIP-4_W9.53mm","Lite-On","LTV-814S-TA1","C125118"
 "U2","1","HT7533-1","Package_TO_SOT_SMD:SOT-89-3","Holtek","HT7533-1","C14289"
-"U3","1","E73-2G4M08S1C","linky-matter:E73-2G4M08S1C","Ebyte","E73-2G4M08S1C","C356849"
+"U3","1","E73-2G4M08S1C","linky-matter-over-thread:E73-2G4M08S1C","Ebyte","E73-2G4M08S1C","C356849"
 "Y1","1","32.768kHz CL9pF","Crystal:Crystal_SMD_2012-2Pin_2.0x1.2mm_HandSoldering","Micro Crystal","CM8V-T1A-32.768KHZ-9PF-20PPM","C5142652"

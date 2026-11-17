@@ -1,4 +1,4 @@
 (sym_lib_table
   (version 7)
-  (lib (name "linky-matter")(type "KiCad")(uri "${KIPRJMOD}/linky-matter.kicad_sym")(options "")(descr "Project symbols"))
+  (lib (name "linky-matter-over-thread")(type "KiCad")(uri "${KIPRJMOD}/linky-matter-over-thread.kicad_sym")(options "")(descr "Project symbols"))
 )

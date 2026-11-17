@@ -1,4 +1,4 @@
-# linky-matter
+# linky-matter-over-thread
 
 A small board that connects to the TIC output of a French Linky meter and makes its readings available over Thread, as a Matter device. It is powered by the meter itself, so there is no battery to replace and no power supply to run to the meter.
 
@@ -7,6 +7,8 @@ A small board that connects to the TIC output of a French Linky meter and makes 
 ## Why I made it
 
 I wanted my electricity usage in Home Assistant, live and without any cloud. The usual options are a Zigbee dongle (ZLinky), a Wi-Fi board that needs a USB supply next to the meter, or the Enedis website a day later. My home already runs a Thread network, and Home Assistant reads Matter energy measurements natively (kWh for the Energy dashboard, plus W, VA and V). So this board speaks Thread and Matter, and nothing else.
+
+The closest thing I found is [BDeliers' Elektor Labs entry](https://www.elektormagazine.com/labs/the-electric-meter-that-matters) from 2024, which runs Matter over Thread on an STM32WB dev kit. The kit draws more than the TIC can supply, so it needs its own power. Running from the meter alone is the whole point of this one.
 
 ## Status
 
@@ -52,11 +54,11 @@ J2 is a 2.54 mm header, in the same order as the module pads: 3V3, GND, RST, TX,
 
 ```
 hardware/
-  linky-matter.kicad_pro, .kicad_sch, .kicad_pcb   KiCad 10 project
-  linky-matter.kicad_sym, linky-matter.pretty/     E73 symbol and footprint
-  linky-matter.3dshapes/                           simplified 3D model of the module
-  production/linky-matter-gerbers.zip              Gerbers and drill files
-  production/bom.csv                               parts list with LCSC codes
+  linky-matter-over-thread.kicad_pro, .kicad_sch, .kicad_pcb  KiCad 10 project
+  linky-matter-over-thread.kicad_sym, .pretty/                E73 symbol and footprint
+  linky-matter-over-thread.3dshapes/                          simplified 3D model of the module
+  production/linky-matter-over-thread-gerbers.zip             Gerbers and drill files
+  production/bom.csv                                          parts list with LCSC codes
 docs/
   schematic.pdf
   images/
