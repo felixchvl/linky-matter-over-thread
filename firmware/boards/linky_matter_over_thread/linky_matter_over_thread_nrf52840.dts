@@ -1,0 +1,139 @@
+/*
+ * linky-matter-over-thread v1: Ebyte E73-2G4M08S1C (nRF52840) powered by the Linky TIC.
+ * Pin assignment matches hardware/linky-matter-over-thread.kicad_sch.
+ */
+
+/dts-v1/;
+#include <nordic/nrf52840_qiaa.dtsi>
+#include "linky_matter_over_thread_nrf52840-pinctrl.dtsi"
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/adc/adc.h>
+#include <zephyr/dt-bindings/adc/nrf-saadc.h>
+
+/ {
+	model = "linky-matter-over-thread";
+	compatible = "linky-matter-over-thread";
+
+	chosen {
+		zephyr,console = &uart1;
+		zephyr,shell-uart = &uart1;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,code-partition = &slot0_partition;
+		zephyr,ieee802154 = &ieee802154;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		led0: led_0 {
+			gpios = <&gpio1 10 GPIO_ACTIVE_HIGH>;
+			label = "Status LED";
+		};
+	};
+
+	buttons {
+		compatible = "gpio-keys";
+		button0: button_0 {
+			gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			label = "Pairing button";
+			zephyr,code = <INPUT_KEY_0>;
+		};
+	};
+
+	/* Input voltage after the bridge, through 1 M / 150 k (x 0.1304) on AIN6. */
+	vin_sense: vin-sense {
+		compatible = "voltage-divider";
+		io-channels = <&adc 6>;
+		output-ohms = <150000>;
+		full-ohms = <1150000>;
+	};
+
+	aliases {
+		led0 = &led0;
+		sw0 = &button0;
+		tic-uart = &uart0;
+	};
+};
+
+&gpiote {
+	status = "okay";
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&gpio1 {
+	status = "okay";
+};
+
+/*
+ * No DC/DC: the E73 module does not appear to have the inductor the nRF52840
+ * DC/DC regulator needs, so REG1 stays in LDO mode (the default).
+ * VDDH is tied to VDD on the board (normal voltage mode).
+ */
+
+&uart0 {
+	compatible = "nordic,nrf-uarte";
+	status = "okay";
+	current-speed = <9600>;
+	pinctrl-0 = <&uart0_default>;
+	pinctrl-1 = <&uart0_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&uart1 {
+	compatible = "nordic,nrf-uarte";
+	status = "okay";
+	current-speed = <115200>;
+	pinctrl-0 = <&uart1_default>;
+	pinctrl-1 = <&uart1_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&adc {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	channel@6 {
+		reg = <6>;
+		zephyr,gain = "ADC_GAIN_1_6";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		/* 130 kOhm source: 40 us acquisition is the nRF52840 setting for up to 800 kOhm. */
+		zephyr,acquisition-time = <ADC_ACQ_TIME(ADC_ACQ_TIME_MICROSECONDS, 40)>;
+		zephyr,input-positive = <NRF_SAADC_AIN6>;
+		zephyr,resolution = <12>;
+	};
+};
+
+&ieee802154 {
+	status = "okay";
+};
+
+&flash0 {
+	partitions {
+		ranges;
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		/* No bootloader and no external flash: updates go through SWD. */
+		slot0_partition: partition@0 {
+			compatible = "zephyr,mapped-partition";
+			label = "image-0";
+			reg = <0x00000000 DT_SIZE_K(988)>;
+		};
+
+		factory_data_partition: partition@f7000 {
+			compatible = "zephyr,mapped-partition";
+			label = "factory-data";
+			reg = <0x000f7000 DT_SIZE_K(4)>;
+		};
+
+		storage_partition: partition@f8000 {
+			compatible = "zephyr,mapped-partition";
+			label = "storage";
+			reg = <0x000f8000 DT_SIZE_K(32)>;
+		};
+	};
+};

@@ -1,0 +1,7 @@
+CONFIG_ARM_MPU=y
+CONFIG_GPIO=y
+CONFIG_SERIAL=y
+CONFIG_CONSOLE=y
+CONFIG_UART_CONSOLE=y
+# The image starts at 0x0: there is no bootloader on this board.
+CONFIG_USE_DT_CODE_PARTITION=y
