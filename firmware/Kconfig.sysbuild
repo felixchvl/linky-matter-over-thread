@@ -1,0 +1,15 @@
+# No bootloader: the nRF52840 has no external flash on this board, so there is
+# no room for a second image and no over-the-air update. Updates go through SWD.
+choice BOOTLOADER
+	default BOOTLOADER_NONE
+endchoice
+
+config MATTER_OTA
+	default n
+
+# Generates factory data with a random setup passcode and discriminator for
+# each build, instead of the well-known test passcode.
+config MATTER_FACTORY_DATA_GENERATE
+	default y
+
+source "share/sysbuild/Kconfig"

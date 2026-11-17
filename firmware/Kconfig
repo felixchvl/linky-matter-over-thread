@@ -1,0 +1,49 @@
+mainmenu "linky-matter-over-thread"
+
+# Thread sleepy end device (Matter ICD, short idle time): the radio sleeps
+# between polls of its parent, which keeps the average current low enough
+# to run from the TIC.
+choice OPENTHREAD_NORDIC_LIBRARY_CONFIGURATION
+	default OPENTHREAD_NORDIC_LIBRARY_MTD
+endchoice
+
+choice OPENTHREAD_DEVICE_TYPE
+	default OPENTHREAD_MTD
+endchoice
+
+config CHIP_ENABLE_ICD_SUPPORT
+	default y
+
+config CHIP_ICD_SLOW_POLL_INTERVAL
+	default 5000
+
+config CHIP_ICD_REPORT_ON_ACTIVE_MODE
+	default y
+
+config OPENTHREAD_DEFAULT_TX_POWER
+	default 0
+
+config LINKY_TIC_TIMEOUT_MS
+	int "Time without a valid frame before trying the other TIC speed (ms)"
+	default 6000
+	help
+	  The meter sends a frame about every second in standard mode (9600 baud)
+	  and every 1.5 s or so in historic mode (1200 baud). If no valid frame
+	  arrives within this time, the reader switches to the other speed.
+
+config LINKY_ENERGY_REPORT_INTERVAL_S
+	int "Minimum time between two cumulative energy updates (s)"
+	default 60
+
+config LINKY_POWER_WINDOW_S
+	int "Minimum window for the active power estimate (s)"
+	default 60
+
+config LINKY_VIN_LOG_INTERVAL_S
+	int "Interval between two input voltage log lines, 0 to disable (s)"
+	default 60
+
+source "$(ZEPHYR_CONNECTEDHOMEIP_MODULE_DIR)/config/nrfconnect/chip-module/Kconfig.features"
+source "$(ZEPHYR_CONNECTEDHOMEIP_MODULE_DIR)/config/nrfconnect/chip-module/Kconfig.defaults"
+source "$(ZEPHYR_NRF_MODULE_DIR)/samples/matter/common/src/Kconfig"
+source "Kconfig.zephyr"

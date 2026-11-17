@@ -17,7 +17,9 @@ The closest thing I found is [BDeliers' Elektor Labs entry](https://www.elektorm
 - [ ] First boards ordered and soldered
 - [ ] Firmware (Zephyr / nRF Connect SDK, Matter over Thread)
   - [x] TIC decoder for both modes, with host tests
-  - [ ] Board definition and Matter application
+  - [x] Board definition and Matter application, building with nRF Connect SDK v3.4.2
+  - [ ] Running on a real board
+  - [ ] Energy per tariff index (HC/HP, Tempo) in Matter
 - [ ] 3D-printed case
 
 Nothing has been built yet, so treat it as a design in progress. Read the checklist under [Building one](#building-one) before ordering.
@@ -61,6 +63,7 @@ hardware/
   linky-matter-over-thread.3dshapes/                          simplified 3D model of the module
   production/linky-matter-over-thread-gerbers.zip             Gerbers and drill files
   production/bom.csv                                          parts list with LCSC codes
+firmware/                                                   Zephyr / nRF Connect SDK app, see firmware/README.md
 docs/
   schematic.pdf
   images/
