@@ -16,3 +16,4 @@ firmware/tests/host/*.dSYM/
 # case
 case/build/
 __pycache__/
+*.FCBak
