@@ -39,7 +39,7 @@ def k(x, y):
 
 H1 = k(3.8, 3.8)               # M3 holes
 H2 = k(60.2, 37.2)
-SW1 = k(51.25, 4.25)           # pairing button, Diptronics DTSA-62N, actuator 5 mm above the board
+SW1 = k(51.25, 4.25)           # pairing button, Diptronics DTS-62N, actuator 5 mm above the board
 LED = k(57.76, 5.6)            # status LED D4
 J1_SCREWS = [k(6.0, y) for y in (12.84, 17.92, 23.0)]   # A, I1, I2
 J1_LABELS = ["A", "I1", "I2"]

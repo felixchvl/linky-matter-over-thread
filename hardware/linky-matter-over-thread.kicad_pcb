@@ -4559,7 +4559,7 @@
 				)
 			)
 		)
-		(property "MPN" "DTSA-62N (6 x 6 x 5 mm)"
+		(property "MPN" "DTS-62N (6 x 6 x 5 mm)"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -4571,7 +4571,7 @@
 				)
 			)
 		)
-		(property "Reichelt" "DIP DTSA-62N"
+		(property "Reichelt" "DIP DTS-62N"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)

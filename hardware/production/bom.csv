@@ -16,7 +16,7 @@
 "R4","1","150k","Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder","Yageo","150 k 0805","SMD-0805 150K"
 "R5","1","2k2","Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder","Yageo","2.2 k 0805","SMD-0805 2,20K"
 "RV1","1","2k","Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical","generic","64W 2 k multi-turn trimmer (3296W footprint)","64W-2,0K"
-"SW1","1","BUTTON","Button_Switch_THT:SW_PUSH_6mm","Diptronics","DTSA-62N (6 x 6 x 5 mm)","DIP DTSA-62N"
+"SW1","1","BUTTON","Button_Switch_THT:SW_PUSH_6mm","Diptronics","DTS-62N (6 x 6 x 5 mm)","DIP DTS-62N"
 "U1","1","LTV-814S","Package_DIP:SMDIP-4_W9.53mm","Lite-On","LTV-814S","LTV 814S"
 "U2","1","MCP1804T-3302I/DB","Package_TO_SOT_SMD:SOT-223-3_TabPin2","Microchip","MCP1804T-3302I/DB","MCP1804T3302IDB"
 "U3","1","E73-2G4M08S1C","linky-matter-over-thread:E73-2G4M08S1C","Ebyte","E73-2G4M08S1C","(Passion Radio)"
