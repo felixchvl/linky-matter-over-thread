@@ -39,7 +39,7 @@ def k(x, y):
 
 H1 = k(3.8, 3.8)               # M3 holes
 H2 = k(60.2, 37.2)
-SW1 = k(51.25, 4.25)           # pairing button, B3F-1000, actuator 4.3 mm above the board
+SW1 = k(51.25, 4.25)           # pairing button, Diptronics DTSA-62N, actuator 5 mm above the board
 LED = k(57.76, 5.6)            # status LED D4
 J1_SCREWS = [k(6.0, y) for y in (12.84, 17.92, 23.0)]   # A, I1, I2
 J1_LABELS = ["A", "I1", "I2"]
@@ -146,7 +146,7 @@ def make_base():
 
 
 # ---------------------------------------------------------------- lid
-BUTTON_TUBE_Z = Z_PCB_TOP + 5.9      # bottom of the plunger guide
+BUTTON_TUBE_Z = Z_PCB_TOP + 6.6      # bottom of the plunger guide
 LED_TUBE_Z = Z_PCB_TOP + 1.9         # just above the LED (1.1 mm tall)
 
 
@@ -182,7 +182,7 @@ def make_lid():
 
 
 # ---------------------------------------------------------------- plunger
-SW_TOP = Z_PCB_TOP + 4.3
+SW_TOP = Z_PCB_TOP + 5.0
 
 
 def make_plunger():
@@ -211,7 +211,7 @@ def board_envelope(step_path):
     extra = [
         cyl(5.25, C1[0], C1[1], Z_PCB_TOP, Z_PCB_TOP + TALLEST),                     # C1 at full height
         Part.makeBox(18.0, 13.0, 2.2, V(45.0, PCB_H - 25.5, Z_PCB_TOP)),             # E73 module
-        Part.makeBox(1.2, 2.0, 0.6, V(41.4, PCB_H - 16.19, Z_PCB_TOP)),             # Y1 crystal
+        Part.makeBox(6.0, 6.0, 5.0, V(SW1[0] - 3.0, SW1[1] - 3.0, Z_PCB_TOP)),      # SW1 at its real 5 mm height
     ]
     return Part.makeCompound([board] + extra)
 

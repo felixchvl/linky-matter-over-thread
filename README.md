@@ -28,13 +28,13 @@ Nothing has been built yet, so treat it as a design in progress. Read the checkl
 
 The TIC output has three screw terminals. I1 and A provide a little power (at least 130 mW, 6 V rms at 50 kHz). I1 and I2 carry the data as a 50 kHz carrier: carrier present means bit 0. The format is 7E1, at 1200 baud in "historique" mode or 9600 baud in "standard" mode.
 
-**Power.** Two BAT54S form a Schottky bridge on I1–A. A 20 V zener keeps the input under the 24 V limit of the regulator. A 470 µF capacitor covers the radio's transmit peaks, and an HT7533-1 LDO makes 3.3 V. With a linear regulator, current is what matters: the TIC can deliver roughly 16–20 mA, and the board should average 1–2 mA as a sleepy Thread device. JP1 links the regulator to the 3.3 V rail. Pull it to run the board from the programming header, or to put an ammeter in its place.
+**Power.** Two BAT54S form a Schottky bridge on I1–A. A 20 V zener keeps the input well under the 28 V limit of the regulator. A 470 µF capacitor covers the radio's transmit peaks, and a Microchip MCP1804 LDO (SOT-223) makes 3.3 V. With a linear regulator, current is what matters: the TIC can deliver roughly 16–20 mA, and the board should average 1–2 mA as a sleepy Thread device. JP1 links the regulator to the 3.3 V rail. Pull it to run the board from the programming header, or to put an ammeter in its place.
 
-**Data.** The receiver is the stage from Charles-Henri Hallard's PiTInfo V1.2: a 2 kΩ trimmer, an LTV-814 optocoupler and a CJ2302 MOSFET. When the carrier is present, TIC_RX goes low, so the UART reads the bits without any inversion. The nRF52840 UART has no 7-bit mode, so the firmware reads 8 bits, checks the parity bit itself and drops it. On top of that, the checksum at the end of each TIC line catches errors.
+**Data.** The receiver is the stage from Charles-Henri Hallard's PiTInfo V1.2: a 2 kΩ trimmer, an LTV-814 optocoupler and a small N-MOSFET (an AO3400A here, a CJ2302 on the PiTInfo). When the carrier is present, TIC_RX goes low, so the UART reads the bits without any inversion. The nRF52840 UART has no 7-bit mode, so the firmware reads 8 bits, checks the parity bit itself and drops it. On top of that, the checksum at the end of each TIC line catches errors.
 
 **Radio.** The radio is an Ebyte E73-2G4M08S1C module with an nRF52840:
 - normal voltage mode (VDDH tied to VDD), USB unused;
-- a 32.768 kHz crystal with the load capacitors from Nordic's reference circuit, for accurate wake-ups while sleeping;
+- a 32.768 kHz crystal (9 pF load, 3.2 × 1.5 mm) with 10 pF capacitors, for accurate wake-ups while sleeping;
 - only the 28 castellated pads on the module's edge are used, so it solders with a regular iron; the 15 pads underneath stay unconnected.
 
 The firmware will also read its own input voltage through a divider on AIN6. It will run as a sleepy end device by default, and only become a Thread router if the measured margin allows it.
@@ -62,7 +62,7 @@ hardware/
   linky-matter-over-thread.kicad_sym, .pretty/                E73 symbol and footprint
   linky-matter-over-thread.3dshapes/                          simplified 3D model of the module
   production/linky-matter-over-thread-gerbers.zip             Gerbers and drill files
-  production/bom.csv                                          parts list with LCSC codes
+  production/bom.csv                                          parts list with Reichelt article numbers
 firmware/                                                   Zephyr / nRF Connect SDK app, see firmware/README.md
 case/                                                       3D-printed enclosure (FreeCAD), see case/README.md
 docs/
@@ -91,18 +91,19 @@ Tracks are 0.5 mm for power and ground, 0.4 mm for signals and 0.3 mm on the mod
 Before ordering:
 
 - The E73 footprint is drawn from Ebyte's drawing. Its pads match the [SnapEDA footprint](https://github.com/rbaron/b-parasite/tree/main/kicad/lib/snapeda) and [nordic-lib-kicad](https://github.com/hlord2000/nordic-lib-kicad) exactly, and [nrfmicro](https://github.com/joric/nrfmicro)'s within 0.2 mm, but it has not met a physical module yet. If you have one, print [docs/footprint-check-1to1.pdf](docs/footprint-check-1to1.pdf) at 100 % (its two scale bars tell you if the printer resized it) and lay the module on it.
-- The E73 is no longer listed at LCSC (C356849 returns "part not found"). Ebyte sells it on Tindie and AliExpress, and RobotShop stocks it. Everything else is on LCSC.
+- The E73 is no longer listed at LCSC. I buy it from Passion Radio in France; Ebyte also sells it on Tindie and AliExpress, and RobotShop stocks it.
+- Every other part is stocked by Reichelt, an EU distributor. I picked it on purpose: since 2026, small parcels from China into France pay a flat customs fee per type of item, which costs more than the parts on an order like this one.
 
 Parts:
 
-- **[production/bom.csv](hardware/production/bom.csv)** has every part with a manufacturer part number and an LCSC code.
+- **[production/bom.csv](hardware/production/bom.csv)** has every part with a manufacturer part number and its Reichelt article number.
 - **Passives:** generic 0805, any equivalent works.
-- **Regulator:** use a genuine Holtek HT7533-1. Cheaper clones are not all rated for 24 V in.
+- **Regulator:** the MCP1804 takes up to 28 V in (30 V absolute), which leaves a wide margin over the 20 V zener.
 
 Soldering:
 
-- All SMD parts are 0805, SOT-23, SOT-89 or SOD-123, with hand-soldering pads.
-- The 2.0 × 1.2 mm crystal is the smallest part; hot air makes it easier.
+- All SMD parts are 0805, SOT-23, SOT-223, MiniMELF or a 3.2 × 1.5 mm crystal, with hand-soldering pads where KiCad has them.
+- The 3.2 × 1.5 mm crystal and the 0805 parts are the smallest; a fine tip is enough, hot air helps.
 
 Before connecting it to the meter:
 

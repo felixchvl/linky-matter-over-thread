@@ -2893,14 +2893,27 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Regulator_Linear:HT75xx-1-SOT89"
+		(symbol "Regulator_Linear:MCP1804x-1802xDB"
+			(pin_names
+				(offset 0.254)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "U"
-				(at -5.08 -3.81 0)
+				(at -3.81 3.175 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MCP1804x-1802xDB"
+				(at -0.635 3.175 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -2910,30 +2923,8 @@
 					(justify left)
 				)
 			)
-			(property "Value" "HT75xx-1-SOT89"
-				(at 0 6.35 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-89-3"
-				(at 0 8.255 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.holtek.com/documents/10179/116711/HT75xx-1v250.pdf"
-				(at 0 2.54 0)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
+				(at 0 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -2943,7 +2934,7 @@
 					)
 				)
 			)
-			(property "Description" "100mA Low Dropout Voltage Regulator, Fixed Output, SOT89"
+			(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/20002200D.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2954,7 +2945,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "100mA LDO Regulator Fixed Positive"
+			(property "Description" "150mA, 28V LDO Regulator With Shutdown, 1.8V Fixed Output, SOT-223"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2965,7 +2956,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "SOT?89*"
+			(property "ki_keywords" "linear regulator ldo fixed positive"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2976,10 +2967,21 @@
 					)
 				)
 			)
-			(symbol "HT75xx-1-SOT89_0_1"
+			(property "ki_fp_filters" "SOT?223*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "MCP1804x-1802xDB_0_1"
 				(rectangle
-					(start -5.08 5.08)
-					(end 5.08 -2.54)
+					(start -5.08 1.905)
+					(end 5.08 -5.08)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -2989,11 +2991,11 @@
 					)
 				)
 			)
-			(symbol "HT75xx-1-SOT89_1_1"
-				(pin power_in line
-					(at 0 -5.08 90)
+			(symbol "MCP1804x-1802xDB_1_1"
+				(pin power_out line
+					(at 7.62 0 180)
 					(length 2.54)
-					(name "GND"
+					(name "OUT"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3009,9 +3011,9 @@
 					)
 				)
 				(pin power_in line
-					(at -7.62 2.54 0)
+					(at 0 -7.62 90)
 					(length 2.54)
-					(name "VIN"
+					(name "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3026,10 +3028,10 @@
 						)
 					)
 				)
-				(pin power_out line
-					(at 7.62 2.54 180)
+				(pin power_in line
+					(at -7.62 0 0)
 					(length 2.54)
-					(name "VOUT"
+					(name "IN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4862,7 +4864,7 @@
 		)
 		(uuid "92f74429-577c-5c5e-8d58-fc20d34c7682")
 	)
-	(text "Only the 28 edge pads are soldered; the 15 inner pads (12-24 and 28-42, even) stay unconnected.\nVDDH tied to VDD: normal voltage mode, DCCH unused. USB unused: VBUS to GND, D+/D- open (Nordic reference).\nY1 32.768 kHz (CL 9 pF) with C6/C7 12 pF, as in the Nordic reference circuit; the 32 MHz crystal is inside the module.\nP0.30/AIN6: VIN monitor (R3/R4, VIN x 0.13). P0.13: TIC_RX (UARTE1). P0.24: debug TX. P1.10: LED. P0.02: button.\nJ2: 1 +3V3, 2 GND, 3 nRESET, 4 DBG_TX, 5 SWDIO, 6 SWDCLK (same order as the module pads)."
+	(text "Only the 28 edge pads are soldered; the 15 inner pads (12-24 and 28-42, even) stay unconnected.\nVDDH tied to VDD: normal voltage mode, DCCH unused. USB unused: VBUS to GND, D+/D- open (Nordic reference).\nY1 32.768 kHz (CL 9 pF) with C6/C7 10 pF (about 8 pF with the board), close to the Nordic reference; the 32 MHz crystal is inside the module.\nP0.30/AIN6: VIN monitor (R3/R4, VIN x 0.13). P0.13: TIC_RX (UARTE1). P0.24: debug TX. P1.10: LED. P0.02: button.\nJ2: 1 +3V3, 2 GND, 3 nRESET, 4 DBG_TX, 5 SWDIO, 6 SWDCLK (same order as the module pads)."
 		(exclude_from_sim no)
 		(at 210.82 154.94 0)
 		(effects
@@ -4873,7 +4875,7 @@
 		)
 		(uuid "9dcea7df-7da5-5423-bc89-a63996ab6105")
 	)
-	(text "TIC supply (I1-A): 6 Vrms ±10 % at 50 kHz into 225-335 Ω, at least 130 mW;\n13 Vrms open circuit (about 18 V peak). D1+D2 form a Schottky bridge.\nD3 keeps VIN under the 24 V maximum of U2. C1 covers the radio transmit peaks.\nJP1 fitted: powered by the TIC. JP1 removed: 3.3 V from J2, or an ammeter across JP1.\nNever feed 3.3 V into J2 with JP1 fitted."
+	(text "TIC supply (I1-A): 6 Vrms ±10 % at 50 kHz into 225-335 Ω, at least 130 mW;\n13 Vrms open circuit (about 18 V peak). D1+D2 form a Schottky bridge.\nD3 keeps VIN well under the 28 V maximum of U2. C1 covers the radio transmit peaks.\nJP1 fitted: powered by the TIC. JP1 removed: 3.3 V from J2, or an ammeter across JP1.\nNever feed 3.3 V into J2 with JP1 fitted."
 		(exclude_from_sim no)
 		(at 60.96 158.75 0)
 		(effects
@@ -6685,7 +6687,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Rubycon"
+		(property "Manufacturer" "Samwha"
 			(at 116.84 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -6696,7 +6698,7 @@
 				)
 			)
 		)
-		(property "MPN" "35YXJ470M10X16"
+		(property "MPN" "RD1V477M10016100"
 			(at 116.84 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -6707,7 +6709,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C88732"
+		(property "Reichelt" "RD1V477M10016100"
 			(at 116.84 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -7107,7 +7109,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
+		(property "Manufacturer" "Yageo"
 			(at 340.36 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -7118,7 +7120,7 @@
 				)
 			)
 		)
-		(property "MPN" "0805W8F1004T5E"
+		(property "MPN" "1 M 0805"
 			(at 340.36 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -7129,7 +7131,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17514"
+		(property "Reichelt" "SMD-0805 1,00M"
 			(at 340.36 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -7232,7 +7234,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL21A106KOQNNNE"
+		(property "MPN" "CL21B106KOQNNNE"
 			(at 160.02 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -7243,7 +7245,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C1713"
+		(property "Reichelt" "CL21B106KOQNNNE"
 			(at 160.02 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -7512,7 +7514,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "Reichelt" "CL21B105KBFNNNE"
 			(at 132.08 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -7604,7 +7606,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
+		(property "Manufacturer" "Yageo"
 			(at 125.73 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -7615,7 +7617,7 @@
 				)
 			)
 		)
-		(property "MPN" "0805W8F1002T5E"
+		(property "MPN" "10 k 0805"
 			(at 125.73 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -7626,7 +7628,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17414"
+		(property "Reichelt" "SMD-0805 10,0K"
 			(at 125.73 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -7871,7 +7873,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Degson"
+		(property "Manufacturer" "Phoenix Contact"
 			(at 25.4 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -7882,7 +7884,7 @@
 				)
 			)
 		)
-		(property "MPN" "DG127-5.08-03P-14-1002A(H)"
+		(property "MPN" "MKDS 1,5/ 3-5,08"
 			(at 25.4 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -7893,7 +7895,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C669321"
+		(property "Reichelt" "MKDS 1,5 3 5,08"
 			(at 25.4 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -8063,7 +8065,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Bourns"
+		(property "Manufacturer" "generic"
 			(at 73.66 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -8074,7 +8076,7 @@
 				)
 			)
 		)
-		(property "MPN" "3296W-1-202LF"
+		(property "MPN" "64W 2 k multi-turn trimmer (3296W footprint)"
 			(at 73.66 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -8085,7 +8087,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C83684"
+		(property "Reichelt" "64W-2,0K"
 			(at 73.66 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -8191,7 +8193,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL21A106KOQNNNE"
+		(property "MPN" "CL21B106KOQNNNE"
 			(at 236.22 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -8202,7 +8204,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C1713"
+		(property "Reichelt" "CL21B106KOQNNNE"
 			(at 236.22 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -8636,7 +8638,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "12p C0G"
+		(property "Value" "10p C0G"
 			(at 226.568 109.22 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8680,7 +8682,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "FH"
+		(property "Manufacturer" "generic"
 			(at 228.6 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -8691,7 +8693,7 @@
 				)
 			)
 		)
-		(property "MPN" "0805CG120J500NT"
+		(property "MPN" "10 pF C0G 50 V 0805"
 			(at 228.6 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -8702,7 +8704,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C1792"
+		(property "Reichelt" "NPO-G0805 10P"
 			(at 228.6 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -8792,7 +8794,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "SEP"
+		(property "Manufacturer" "Diodes Inc."
 			(at 78.74 132.08 0)
 			(hide yes)
 			(show_name no)
@@ -8803,7 +8805,7 @@
 				)
 			)
 		)
-		(property "MPN" "BAT54S"
+		(property "MPN" "BAT54S-7-F"
 			(at 78.74 132.08 0)
 			(hide yes)
 			(show_name no)
@@ -8814,7 +8816,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C50176387"
+		(property "Reichelt" "BAT54S-7-F"
 			(at 78.74 132.08 0)
 			(hide yes)
 			(show_name no)
@@ -9020,7 +9022,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "CJ2302"
+		(property "Value" "AO3400A"
 			(at 128.27 52.07 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9053,7 +9055,7 @@
 				)
 			)
 		)
-		(property "Description" "N-MOSFET SOT-23, 1=G 2=S 3=D (CJ2302, as on PiTInfo)"
+		(property "Description" "N-MOSFET SOT-23, 1=G 2=S 3=D (AO3400A; PiTInfo uses a CJ2302)"
 			(at 123.19 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -9064,7 +9066,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "JSCJ"
+		(property "Manufacturer" "Alpha & Omega"
 			(at 123.19 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -9075,7 +9077,7 @@
 				)
 			)
 		)
-		(property "MPN" "CJ2302 S2"
+		(property "MPN" "AO3400A"
 			(at 123.19 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -9086,7 +9088,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C8548"
+		(property "Reichelt" "AO3400A"
 			(at 123.19 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -9181,7 +9183,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" "Samsung"
 			(at 246.38 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -9192,7 +9194,7 @@
 				)
 			)
 		)
-		(property "MPN" "CC0805KRX7R9BB104"
+		(property "MPN" "CL21B104KBCNNNC"
 			(at 246.38 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -9203,7 +9205,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C49678"
+		(property "Reichelt" "CL21B104KBCNNNC"
 			(at 246.38 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -9324,7 +9326,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BZT52C20"
+		(property "Value" "ZF20"
 			(at 101.092 130.81 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9335,7 +9337,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123"
+		(property "Footprint" "Diode_SMD:D_MiniMELF"
 			(at 99.06 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -9357,7 +9359,7 @@
 				)
 			)
 		)
-		(property "Description" "20 V zener: keeps VIN under the 24 V max of U2 (TIC source is ~300 Ω)"
+		(property "Description" "20 V zener, MiniMELF: keeps VIN well under the 28 V max of U2 (TIC source is ~300 Ω)"
 			(at 99.06 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -9368,7 +9370,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "R+O"
+		(property "Manufacturer" "Hottech"
 			(at 99.06 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -9379,7 +9381,7 @@
 				)
 			)
 		)
-		(property "MPN" "BZT52C20"
+		(property "MPN" "ZF20 (MiniMELF, 0.5 W)"
 			(at 99.06 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -9390,7 +9392,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C19077415"
+		(property "Reichelt" "SMD ZF 20"
 			(at 99.06 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -9637,7 +9639,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
+		(property "Manufacturer" "Yageo"
 			(at 110.49 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -9648,7 +9650,7 @@
 				)
 			)
 		)
-		(property "MPN" "0805W8F1002T5E"
+		(property "MPN" "10 k 0805"
 			(at 110.49 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -9659,7 +9661,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17414"
+		(property "Reichelt" "SMD-0805 10,0K"
 			(at 110.49 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -9707,7 +9709,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "12p C0G"
+		(property "Value" "10p C0G"
 			(at 245.872 109.22 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9751,7 +9753,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "FH"
+		(property "Manufacturer" "generic"
 			(at 243.84 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -9762,7 +9764,7 @@
 				)
 			)
 		)
-		(property "MPN" "0805CG120J500NT"
+		(property "MPN" "10 pF C0G 50 V 0805"
 			(at 243.84 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -9773,7 +9775,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C1792"
+		(property "Reichelt" "NPO-G0805 10P"
 			(at 243.84 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -9863,7 +9865,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Omron"
+		(property "Manufacturer" "Diptronics"
 			(at 322.58 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -9874,7 +9876,7 @@
 				)
 			)
 		)
-		(property "MPN" "B3F-1000"
+		(property "MPN" "DTSA-62N (6 x 6 x 5 mm)"
 			(at 322.58 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -9885,7 +9887,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C93157"
+		(property "Reichelt" "DIP DTSA-62N"
 			(at 322.58 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -10053,7 +10055,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "HCTL"
+		(property "Manufacturer" "Econ Connect"
 			(at 172.72 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -10064,7 +10066,7 @@
 				)
 			)
 		)
-		(property "MPN" "HC-JP254-1-65-CL-R-G1 jumper cap, on a 2-pin cut from a 2.54 mm header strip"
+		(property "MPN" "2 pins cut from the same header, plus a jumper"
 			(at 172.72 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -10075,7 +10077,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C20417889"
+		(property "Reichelt" "ECON SL40G1 + JUMPER 2,54 SW"
 			(at 172.72 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -10322,7 +10324,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" "Samsung"
 			(at 353.06 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -10333,7 +10335,7 @@
 				)
 			)
 		)
-		(property "MPN" "CC0805KRX7R9BB104"
+		(property "MPN" "CL21B104KBCNNNC"
 			(at 353.06 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -10344,7 +10346,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C49678"
+		(property "Reichelt" "CL21B104KBCNNNC"
 			(at 353.06 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -10456,7 +10458,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C356849"
+		(property "Reichelt" "(Passion Radio)"
 			(at 279.4 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -10746,7 +10748,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "SEP"
+		(property "Manufacturer" "Diodes Inc."
 			(at 78.74 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -10757,7 +10759,7 @@
 				)
 			)
 		)
-		(property "MPN" "BAT54S"
+		(property "MPN" "BAT54S-7-F"
 			(at 78.74 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -10768,7 +10770,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C50176387"
+		(property "Reichelt" "BAT54S-7-F"
 			(at 78.74 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -10863,7 +10865,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
+		(property "Manufacturer" "Yageo"
 			(at 340.36 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -10874,7 +10876,7 @@
 				)
 			)
 		)
-		(property "MPN" "0805W8F1503T5E"
+		(property "MPN" "150 k 0805"
 			(at 340.36 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -10885,7 +10887,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17470"
+		(property "Reichelt" "SMD-0805 150K"
 			(at 340.36 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -10942,7 +10944,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Crystal:Crystal_SMD_2012-2Pin_2.0x1.2mm_HandSoldering"
+		(property "Footprint" "Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm"
 			(at 236.22 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -10986,7 +10988,7 @@
 				)
 			)
 		)
-		(property "MPN" "CM8V-T1A-32.768KHZ-9PF-20PPM"
+		(property "MPN" "CC7V-T1A 32.768 kHz 9 pF"
 			(at 236.22 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -10997,7 +10999,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C5142652"
+		(property "Reichelt" "32,768 CC7V-9"
 			(at 236.22 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -11087,7 +11089,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Hubei KENTO"
+		(property "Manufacturer" "Everlight"
 			(at 322.58 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -11098,7 +11100,7 @@
 				)
 			)
 		)
-		(property "MPN" "KT-0805R"
+		(property "MPN" "17-21/R6C-AL1M2VY/3T"
 			(at 322.58 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -11109,7 +11111,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C2295"
+		(property "Reichelt" "EVL 17-21/R6C-A"
 			(at 322.58 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -11136,8 +11138,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Regulator_Linear:HT75xx-1-SOT89")
-		(at 144.78 109.22 0)
+		(lib_id "Regulator_Linear:MCP1804x-1802xDB")
+		(at 144.78 106.68 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11147,6 +11149,16 @@
 		(dnp no)
 		(uuid "eb957d05-3333-5ebd-a113-7d151a94d1f3")
 		(property "Reference" "U2"
+			(at 144.78 96.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MCP1804T-3302I/DB"
 			(at 144.78 99.06 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11156,18 +11168,8 @@
 				)
 			)
 		)
-		(property "Value" "HT7533-1"
-			(at 144.78 101.6 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-89-3"
-			(at 144.78 109.22 0)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
+			(at 144.78 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11178,7 +11180,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 144.78 109.22 0)
+			(at 144.78 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11188,8 +11190,8 @@
 				)
 			)
 		)
-		(property "Description" "3.3 V 100 mA LDO, 24 V max input, ~3 uA quiescent (Holtek HT75xx-1)"
-			(at 144.78 109.22 0)
+		(property "Description" "3.3 V 150 mA LDO, 28 V max input, 50 uA quiescent (Microchip MCP1804, SOT-223: 1 OUT, 2 GND, 3 IN)"
+			(at 144.78 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11199,8 +11201,8 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Holtek"
-			(at 144.78 109.22 0)
+		(property "Manufacturer" "Microchip"
+			(at 144.78 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11210,8 +11212,8 @@
 				)
 			)
 		)
-		(property "MPN" "HT7533-1"
-			(at 144.78 109.22 0)
+		(property "MPN" "MCP1804T-3302I/DB"
+			(at 144.78 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11221,8 +11223,8 @@
 				)
 			)
 		)
-		(property "LCSC" "C14289"
-			(at 144.78 109.22 0)
+		(property "Reichelt" "MCP1804T3302IDB"
+			(at 144.78 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11325,7 +11327,7 @@
 				)
 			)
 		)
-		(property "MPN" "LTV-814S-TA1"
+		(property "MPN" "LTV-814S"
 			(at 92.71 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -11336,7 +11338,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C125118"
+		(property "Reichelt" "LTV 814S"
 			(at 92.71 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -11663,7 +11665,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "HanElectricity"
+		(property "Manufacturer" "Econ Connect"
 			(at 373.38 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -11674,7 +11676,7 @@
 				)
 			)
 		)
-		(property "MPN" "2541WV-06P"
+		(property "MPN" "6 pins cut from a 1x40 2.54 mm header"
 			(at 373.38 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -11685,7 +11687,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C5383115"
+		(property "Reichelt" "ECON SL40G1"
 			(at 373.38 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -11937,7 +11939,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
+		(property "Manufacturer" "Yageo"
 			(at 309.88 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -11948,7 +11950,7 @@
 				)
 			)
 		)
-		(property "MPN" "0805W8F2201T5E"
+		(property "MPN" "2.2 k 0805"
 			(at 309.88 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -11959,7 +11961,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17520"
+		(property "Reichelt" "SMD-0805 2,20K"
 			(at 309.88 81.28 0)
 			(hide yes)
 			(show_name no)
