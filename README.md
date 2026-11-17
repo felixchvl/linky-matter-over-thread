@@ -18,7 +18,7 @@ The closest thing I found is [BDeliers' Elektor Labs entry](https://www.elektorm
 - [ ] Firmware (Zephyr / nRF Connect SDK, Matter over Thread)
   - [x] TIC decoder for both modes, with host tests
   - [x] Board definition and Matter application, building with nRF Connect SDK v3.4.2
-  - [x] Energy per tariff index (HC/HP, Tempo) in Matter
+  - [x] Energy per tariff index in Matter (HC/HP, Tempo, up to 10 indexes)
   - [ ] Running on a real board
 - [ ] 3D-printed case
 

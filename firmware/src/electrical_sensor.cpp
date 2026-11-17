@@ -131,12 +131,12 @@ public:
 };
 
 /*
- * Endpoints 2 to 7 carry the energy of supplier indexes 1 to 6 (HC/HP, Tempo...).
+ * Endpoints 2 to 11 carry the energy of supplier indexes 1 to 10 (HC/HP, Tempo...).
  * An endpoint stays hidden until its index shows up in a frame; the indexes
  * seen are saved so the same endpoints are back right after a reboot.
  */
 constexpr EndpointId kFirstIndexEndpoint = 2;
-constexpr uint8_t kIndexEndpoints = 6;
+constexpr uint8_t kIndexEndpoints = TIC_INDEX_COUNT;
 constexpr uint16_t kIndexEndpointMask = (1u << kIndexEndpoints) - 1;
 constexpr char kIndexMaskKey[] = "linky/ix";
 
@@ -246,7 +246,7 @@ CHIP_ERROR Init(EndpointId endpoint)
 	}
 	sShownIndexes = saved & kIndexEndpointMask;
 	ShowIndexEndpoints(sShownIndexes);
-	LOG_INF("Index endpoints shown: 0x%02x", sShownIndexes);
+	LOG_INF("Index endpoints shown: 0x%03x", sShownIndexes);
 
 	tic_power_init(&sEstimator, CONFIG_LINKY_POWER_WINDOW_S * 1000u);
 	return CHIP_NO_ERROR;
@@ -275,7 +275,7 @@ void Update(const tic_reading &r, uint64_t nowMs)
 		sShownIndexes |= seen;
 		ShowIndexEndpoints(sShownIndexes);
 		DeviceLayer::PersistedStorage::KeyValueStoreMgr().Put(kIndexMaskKey, sShownIndexes);
-		LOG_INF("Index endpoints shown: 0x%02x", sShownIndexes);
+		LOG_INF("Index endpoints shown: 0x%03x", sShownIndexes);
 	}
 	for (uint8_t i = 0; i < kIndexEndpoints; i++) {
 		if (seen & (1u << i)) {

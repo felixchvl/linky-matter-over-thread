@@ -1,8 +1,8 @@
 /*
  * Matter side of the meter. Endpoint 1 is an Electrical Sensor with the
  * Power Topology, Electrical Power Measurement and Electrical Energy
- * Measurement clusters, for the whole meter. Endpoints 2 to 7 carry the
- * energy of supplier indexes 1 to 6, shown once the meter reports them.
+ * Measurement clusters, for the whole meter. Endpoints 2 to 11 carry the
+ * energy of supplier indexes 1 to 10, shown once the meter reports them.
  * Call both functions on the Matter thread.
  */
 #pragma once

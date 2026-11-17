@@ -416,6 +416,34 @@ static void test_tempo_mapping(void)
 	CHECK(c.last.current_index == 6);
 }
 
+static void test_standard_ten_indexes(void)
+{
+	/* Some standard-mode offers use all ten supplier indexes. */
+	struct tic_meter m;
+	struct capture c = {0};
+	struct frame f;
+	char label[8], value[10];
+
+	tic_meter_init(&m, on_reading, &c);
+	frame_start(&f);
+	std_group(&f, "EAST", NULL, "000055000");
+	for (int i = 1; i <= 10; i++) {
+		snprintf(label, sizeof(label), "EASF%02d", i);
+		snprintf(value, sizeof(value), "%09d", i * 1000);
+		std_group(&f, label, NULL, value);
+	}
+	std_group(&f, "NTARF", NULL, "10");
+	frame_end(&f);
+	feed_frame(&m, &f);
+
+	CHECK(c.readings == 1);
+	CHECK(c.last.index_mask == 0x3FF);
+	CHECK(c.last.energy_wh[6] == 7000);
+	CHECK(c.last.energy_wh[9] == 10000);
+	CHECK(c.last.current_index == 10);
+	CHECK(c.last.total_wh == 55000);
+}
+
 static void test_overlong_group(void)
 {
 	struct tic_meter m;
@@ -477,6 +505,7 @@ int main(void)
 	test_chunking();
 	test_space_checksum();
 	test_tempo_mapping();
+	test_standard_ten_indexes();
 	test_overlong_group();
 	test_power_estimator();
 
