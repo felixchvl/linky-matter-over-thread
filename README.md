@@ -118,7 +118,8 @@ Before connecting it to the meter:
 
 - Set RV1 to about 1–1.2 kΩ. The TIC wants 500–2000 Ω on its data pair, and 1–1.2 kΩ is what people report working on Linky.
 - Wire A, I1 and I2 as printed next to the terminal. I1 is in the middle because it feeds both the power bridge and the receiver, so the order differs from the meter's.
-- Only use the meter's I1, I2 and A terminals. The dry contact (C1, C2) next to them can carry 230 V, and nothing on this board survives 230 V.
+- Only use the meter's I1, I2 and A terminals. The dry contact (C1, C2) next to them can carry 230 V, and the board has no protection against it. With a standard off-peak contactor, its coil limits the current to about 13 mA. The board survives that, but it keeps the contactor on, so the water heater keeps heating. With any other wiring, RV1 can burn. A fuse would not help: in the standard case the fault current is about the same as the board's normal current.
+- So before screwing the wires into the board, measure the AC voltage between each pair of wires (A–I1, I1–I2, A–I2) with a multimeter, during peak hours, while the dry contact is open (during off-peak hours C1–C2 reads 0 V). Nothing should read more than about 15 V. The TIC itself shows a few volts at most, often less because multimeters under-read its 50 kHz carrier. A reading near 230 V means a wire is on the wrong terminal.
 - Never feed 3.3 V into J2 while JP1 is fitted.
 - When a computer is plugged into J2 at the meter, run it on battery or through a USB isolator. The board's ground is tied to I1 and A through the bridge, so an earthed computer would tie the TIC to earth.
 
