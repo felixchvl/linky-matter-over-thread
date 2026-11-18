@@ -9,7 +9,7 @@
 		(date "2026-11-17")
 		(rev "v1")
 		(comment 1 "Powered and fed by the Linky TIC (I1, I2, A); Thread + Matter on an nRF52840")
-		(comment 2 "Receiver: PiTInfo V1.2 stage by Charles-Henri Hallard")
+		(comment 2 "Receiver: PiTInfo stage by Charles-Henri Hallard (V1.2 circuit, V1.3a/V1.5 values)")
 		(comment 3 "Module: Ebyte E73-2G4M08S1C, programmed over SWD")
 	)
 	(lib_symbols
@@ -4829,7 +4829,7 @@
 		)
 		(uuid "2870b112-0aa1-5ba5-9c26-de0c1f344ae6")
 	)
-	(text "TIC data receiver (PiTInfo V1.2 stage)"
+	(text "TIC data receiver (PiTInfo stage)"
 		(exclude_from_sim no)
 		(at 58.42 25.4 0)
 		(effects
@@ -4841,7 +4841,7 @@
 		)
 		(uuid "6f36cc2f-ef6a-5e3b-860e-952cf7a93e31")
 	)
-	(text "I1-I2: 50 kHz carrier, present = bit 0; 7 data bits, even parity, 1 stop;\n1200 baud (historique) or 9600 baud (standard).\nCarrier → U1 conducts → Q1 on → TIC_RX low: start/0 bits come out low, no inversion.\nRV1 is a 0-2 kΩ rheostat (PiTInfo V1.5); about 1-1.2 kΩ is reported on Linky.\nSet it before connecting: the TIC expects 500-2000 Ω at 50 kHz (Enedis-NOI-CPT_54E)."
+	(text "I1-I2: 50 kHz carrier, present = bit 0; 7 data bits, even parity, 1 stop;\n1200 baud (historique) or 9600 baud (standard).\nCarrier → U1 conducts → Q1 on → TIC_RX low: start/0 bits come out low, no inversion.\nR1 is 3.3 kΩ (PiTInfo V1.3a): with 10 kΩ the opto is too slow for 9600 baud.\nRV1 is a 0-2 kΩ rheostat (PiTInfo V1.5); about 1-1.2 kΩ is reported on Linky.\nSet it before connecting: the TIC expects 500-2000 Ω at 50 kHz (Enedis-NOI-CPT_54E)."
 		(exclude_from_sim no)
 		(at 60.96 68.58 0)
 		(effects
@@ -4864,7 +4864,7 @@
 		)
 		(uuid "92f74429-577c-5c5e-8d58-fc20d34c7682")
 	)
-	(text "Only the 28 edge pads are soldered; the 15 inner pads (12-24 and 28-42, even) stay unconnected.\nVDDH tied to VDD: normal voltage mode, DCCH unused. USB unused: VBUS to GND, D+/D- open (Nordic reference).\nY1 32.768 kHz (CL 9 pF) with C6/C7 10 pF (about 8 pF with the board), close to the Nordic reference; the 32 MHz crystal is inside the module.\nP0.30/AIN6: VIN monitor (R3/R4, VIN x 0.13). P0.13: TIC_RX (UARTE1). P0.24: debug TX. P1.10: LED. P0.02: button.\nJ2: 1 +3V3, 2 GND, 3 nRESET, 4 DBG_TX, 5 SWDIO, 6 SWDCLK (same order as the module pads)."
+	(text "Only the 28 edge pads are soldered; the 15 inner pads (12-24 and 28-42, even) stay unconnected.\nVDDH tied to VDD: normal voltage mode, DCCH unused. USB unused: VBUS to GND, D+/D- open (Nordic reference).\nY1 32.768 kHz (CL 9 pF) with C6/C7 10 pF (about 8 pF with the board), close to the Nordic reference; the 32 MHz crystal is inside the module.\nP0.30/AIN6: VIN monitor (R3/R4, VIN x 0.13). P0.13: TIC_RX (UARTE0). P0.24: debug TX. P1.10: LED. P0.02: button.\nJ2: 1 +3V3, 2 GND, 3 nRESET, 4 DBG_TX, 5 SWDIO, 6 SWDCLK (same order as the module pads)."
 		(exclude_from_sim no)
 		(at 210.82 154.94 0)
 		(effects
@@ -6698,7 +6698,7 @@
 				)
 			)
 		)
-		(property "MPN" "RD1V477M10016100"
+		(property "MPN" "RD1V477M10016BB100"
 			(at 116.84 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -8682,7 +8682,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "generic"
+		(property "Manufacturer" "Yageo"
 			(at 228.6 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -8693,7 +8693,7 @@
 				)
 			)
 		)
-		(property "MPN" "10 pF C0G 50 V 0805"
+		(property "MPN" "CC0805JRNPO9BN100"
 			(at 228.6 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -9326,7 +9326,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "ZF20"
+		(property "Value" "ZMM20"
 			(at 101.092 130.81 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9381,7 +9381,7 @@
 				)
 			)
 		)
-		(property "MPN" "ZF20 (MiniMELF, 0.5 W)"
+		(property "MPN" "ZMM20V (MiniMELF, 0.5 W)"
 			(at 99.06 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -9595,7 +9595,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "3k3"
 			(at 112.522 58.42 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9650,7 +9650,7 @@
 				)
 			)
 		)
-		(property "MPN" "10 k 0805"
+		(property "MPN" "3.3 k 0805"
 			(at 110.49 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -9661,7 +9661,7 @@
 				)
 			)
 		)
-		(property "Reichelt" "SMD-0805 10,0K"
+		(property "Reichelt" "SMD-0805 3,30K"
 			(at 110.49 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -9753,7 +9753,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "generic"
+		(property "Manufacturer" "Yageo"
 			(at 243.84 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -9764,7 +9764,7 @@
 				)
 			)
 		)
-		(property "MPN" "10 pF C0G 50 V 0805"
+		(property "MPN" "CC0805JRNPO9BN100"
 			(at 243.84 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -11100,7 +11100,7 @@
 				)
 			)
 		)
-		(property "MPN" "17-21/R6C-AL1M2VY/3T"
+		(property "MPN" "17-21/R6C-AP1Q2L/3T"
 			(at 322.58 81.28 0)
 			(hide yes)
 			(show_name no)
