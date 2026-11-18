@@ -1,6 +1,6 @@
 # Enclosure
 
-Two printed parts and a small plunger for the pairing button. The box is 69 × 46 × 29 mm, or 60 mm wide with its two mounting ears.
+Two printed parts and a small plunger for the pairing button. The box is 73.5 × 46 × 29 mm, or 60 mm wide with its two mounting ears. It leaves 5 mm of air between the module's antenna and the wall, since plastic right against a chip antenna detunes it.
 
 ![Exploded view](images/exploded.png)
 
@@ -24,12 +24,12 @@ I plan to use PETG or ASA, 0.2 mm layers, 3 walls and 20 % infill. PLA works too
 
 ## Assembly
 
-You need two M3 × 16 socket head screws. The lid pillars have 2.6 mm pilot holes, so the screws cut their own thread in PETG. Two more screws of up to 4 mm can go through the ears to fix the box to a wall.
+You need two M3 × 16 socket head screws. The lid pillars have 2.6 mm pilot holes, so the screws cut their own thread in PETG. Two more screws of up to 4 mm can go through the ears to fix the box to a wall. Not on a metal panel: the antenna would sit about 9 mm above it.
 
 1. Drop the plunger into its guide tube from inside the lid, flange first.
 2. Set the board on the base, with the terminal block on the side with the wire opening.
 3. Put the lid on and drive the two screws in from below. They go through the base, the board and into the lid, so the board is clamped between them.
-4. Pass the three TIC wires through the opening and tighten them through the holes in the lid. The holes are labelled A, I1 and I2, in the board's order, which is not the meter's.
+4. Pass the three TIC wires through the opening and tighten them through the holes in the lid, with a 2.5 mm flat screwdriver. The holes are labelled A, I1 and I2, in the board's order, which is not the meter's.
 
 JP1, the trimmer and the programming header are only reachable with the lid off.
 

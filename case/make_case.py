@@ -47,6 +47,7 @@ C1 = k(17.0, 5.8)              # 470 uF, 10 x 16 mm
 
 # ---------------------------------------------------------------- enclosure parameters
 GAP = 0.5          # board to wall
+ANT_GAP = 5.0      # air in front of the module's chip antenna (+X end): plastic close to it detunes it
 WALL = 2.0
 FLOOR = 2.0
 ROOF = 2.0
@@ -63,7 +64,7 @@ Z_PCB_TOP = Z_PCB_BOT + PCB_T
 Z_ROOF_IN = Z_PCB_TOP + TALLEST + HEADROOM
 Z_TOP = Z_ROOF_IN + ROOF
 
-X0, X1 = -GAP, PCB_W + GAP          # inside of the walls
+X0, X1 = -GAP, PCB_W + ANT_GAP      # inside of the walls
 Y0, Y1 = -GAP, PCB_H + GAP
 
 
@@ -131,9 +132,10 @@ def make_base():
 
     # Mounting ears on the long sides.
     for y_edge, sign in ((Y0 - WALL, -1), (Y1 + WALL, 1)):
-        ear = rbox(PCB_W / 2 - 6, min(y_edge - sign, y_edge + sign * 7), 0,
-                   PCB_W / 2 + 6, max(y_edge - sign, y_edge + sign * 7), 3.0, 2.0)
-        ear = ear.cut(cyl(2.1, PCB_W / 2, y_edge + sign * 3.8, -1, 4))
+        xm = (X0 + X1) / 2
+        ear = rbox(xm - 6, min(y_edge - sign, y_edge + sign * 7), 0,
+                   xm + 6, max(y_edge - sign, y_edge + sign * 7), 3.0, 2.0)
+        ear = ear.cut(cyl(2.1, xm, y_edge + sign * 3.8, -1, 4))
         base = base.fuse(ear)
 
     # M3 screws from below: clearance hole and socket head counterbore.
@@ -163,7 +165,7 @@ def make_lid():
 
     # Screwdriver access to the terminal block, and its labels.
     for (x, y), label in zip(J1_SCREWS, J1_LABELS):
-        lid = lid.cut(cyl(2.25, x, y, Z_ROOF_IN - 1, Z_TOP + 1))
+        lid = lid.cut(cyl(1.75, x, y, Z_ROOF_IN - 1, Z_TOP + 1))   # 3.5 mm: a 2.5 mm blade fits
         lid = lid.cut(text(label, 3.5, x + 3.6, y - 1.75, Z_TOP, 0.6))
 
     # Pairing button: hole and guide tube for the printed plunger.
