@@ -84,7 +84,7 @@ The full schematic is in [docs/schematic.pdf](docs/schematic.pdf).
 
 ## Building one
 
-The board is 64 × 41 mm, two layers, 1.6 mm. The Gerber zip can be uploaded as is to JLCPCB or any other fab. JLCPCB prints its order number where the bottom side says JLCJLCJLCJLC.
+The board is 64 × 41 mm, two layers, 1.6 mm. The Gerber zip can be uploaded as is to JLCPCB or any other fab. JLCPCB no longer adds an order number by default ("Mark on PCB: Remove Mark"), so the board has no placeholder for one.
 
 Tracks are 0.5 mm for power and ground, 0.4 mm for signals and 0.3 mm on the module's pads, with at least 0.25 mm between copper, well clear of standard process limits. Silkscreen text is at least 1 mm high with a 0.15 mm stroke. The rules are saved in the KiCad project (Default and Power netclasses), so edits in KiCad pick them up. There is no copper on either layer between the module's antenna end and the board edge.
 

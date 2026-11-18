@@ -10037,18 +10037,6 @@
 			(justify right)
 		)
 	)
-	(gr_text "JLCJLCJLCJLC"
-		(at 122 133.3 0)
-		(layer "B.SilkS")
-		(uuid "74d6d806-4db5-4fa0-bc75-9163ca6005c9")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.15)
-			)
-			(justify mirror)
-		)
-	)
 	(gr_text "github.com/felixchvl/linky-matter-over-thread"
 		(at 122 137.8 0)
 		(layer "B.SilkS")
