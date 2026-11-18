@@ -57,6 +57,11 @@
 	};
 };
 
+/* P0.18 is the reset pin (J2 pin 3); without this it stays a plain GPIO. */
+&uicr {
+	gpio-as-nreset;
+};
+
 &gpiote {
 	status = "okay";
 };

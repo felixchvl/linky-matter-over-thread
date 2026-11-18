@@ -8,6 +8,7 @@ CONFIG_UART_CONSOLE=y
 # The image starts at 0x0: there is no bootloader on this board.
 CONFIG_USE_DT_CODE_PARTITION=y
 # The 9 pF crystal sits on 10 pF capacitors (Nordic's reference uses 12 pF).
-# The lighter load runs it about 35 ppm fast; with its 20 ppm tolerance,
-# the worst case is near 57 ppm, so declare 75 ppm to the radio stacks.
-CONFIG_CLOCK_CONTROL_NRF_K32SRC_75PPM=y
+# The lighter load runs it 10 to 35 ppm fast at 25 C, on top of its 20 ppm
+# tolerance, and cold slows it down (-0.035 ppm/C^2): from -20 to +70 C the
+# error stays under about 90 ppm, so declare 100 ppm to the radio stacks.
+CONFIG_CLOCK_CONTROL_NRF_K32SRC_100PPM=y

@@ -5,9 +5,11 @@
 #include "tic_reader.h"
 
 #include <zephyr/device.h>
+#include <zephyr/drivers/clock_control/nrf_clock_control.h>
 #include <zephyr/drivers/uart.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
+#include <zephyr/sys/onoff.h>
 #include <zephyr/sys/ring_buffer.h>
 
 LOG_MODULE_REGISTER(tic, CONFIG_LOG_DEFAULT_LEVEL);
@@ -26,6 +28,27 @@ static int64_t last_frame_ms;
 static int64_t last_switch_ms;
 static uint32_t baudrate = 9600;
 static bool locked;
+
+/*
+ * The UARTE times bits from HFCLK. Unless something asks for the 32 MHz crystal, HFCLK runs
+ * from the internal RC oscillator (1.5 % typical, up to 8 %), which leaves too little margin
+ * at 9600 baud once the optocoupler's slow edges are counted. Keep the crystal on while the
+ * TIC is read: it costs about 0.1 mA.
+ */
+static struct onoff_client hfxo_client;
+
+static int hfxo_request(void)
+{
+	struct onoff_manager *mgr = z_nrf_clock_control_get_onoff(CLOCK_CONTROL_NRF_SUBSYS_HF);
+
+	if (!mgr) {
+		return -ENODEV;
+	}
+	sys_notify_init_spinwait(&hfxo_client.notify);
+	int err = onoff_request(mgr, &hfxo_client);
+
+	return err < 0 ? err : 0;
+}
 
 static void uart_isr(const struct device *dev, void *user_data)
 {
@@ -129,12 +152,17 @@ int tic_reader_start(tic_reader_cb cb)
 		LOG_ERR("TIC UART not ready");
 		return -ENODEV;
 	}
+	int err = hfxo_request();
+
+	if (err) {
+		LOG_ERR("Cannot start the 32 MHz crystal (%d)", err);
+		return err;
+	}
 	user_cb = cb;
 	tic_meter_init(&meter, on_reading, NULL);
 	uart_irq_callback_user_data_set(uart, uart_isr, NULL);
 
-	int err = apply_baudrate(baudrate);
-
+	err = apply_baudrate(baudrate);
 	if (err) {
 		return err;
 	}
